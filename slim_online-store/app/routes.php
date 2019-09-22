@@ -10,14 +10,22 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
     //dependency inyector
-    $depinjector = $app->getContainer();
-    //pr($depinjector,"depinjector");
+    $container = $app->getContainer();
+    //pr($container,"depinjector");
     $app->get('/', function (Request $request, Response $response) {
-        $response->getBody()->write('Hello world!');
+        $response->getBody()->write("
+            <a href=\"/\">/</a><br/>
+            <a href=\"/users\">/users</a><br/>
+            <a href=\"/users/1\">/users/1</a><br/>
+            <a href=\"/users/2\">/users/2</a><br/>
+            <a href=\"/users/3\">/users/3</a><br/>
+            <a href=\"/users/4\">/users/4</a><br/>
+            <a href=\"/users/5\">/users/5</a><br/>
+        ");
         return $response;
     });
 
-    $app->group('/users', function (Group $group) use ($depinjector) {
+    $app->group('/users', function (Group $group) use ($container) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });
