@@ -110,4 +110,29 @@
     - constructor obliga a pasar OrderingContext
     - define metodos: Add, Get, Update
 ```
-- **INFRASTRUCTURE**
+- **APPLICATION**
+```JS
+├───Ordering.Application
+│   │ IOrdersService.cs
+      - define un método: OrderPlacedViewModel PlaceOrder(ShoppingCartInputModel shoppingCartInputModel);
+│   │ OrdersService.cs
+      - implementa IOrdersService
+      - tiene atributos: _orderRepository, _shippingService
+      - usa: Ordering.Domain.OrderAggregate.IOrderRepository y IShippingService
+      - usa: ShoppingCartInputModel  
+│   │
+│   ├───ExternalServices
+│   │ IShippingService.cs
+      - no implementa nada
+      - OrderShippingConfirmation SendRequestForDelivery(Order order);
+│   │ OrderShippingConfirmation.cs
+      - clase básica con atributos:TrackingId, ExpectedShipDate con sus getters y setters
+│   │
+│   ├───InputModels
+│   │ ShoppingCartInputModel.cs
+│   │ - clase básica con atributo: EnableEditOnShoppingCart con sus getters y setters
+│   └───ViewModel
+│     OrderProcessedViewModel.cs
+      - clase básica con atributos: OrderId, ShippingDetails con sus getters y setters 
+      - usa OrderShippingConfirmation
+```
