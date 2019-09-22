@@ -1,0 +1,38 @@
+services:
+
+  # Command Handlers
+
+  codely.video.video.command_handler.create_video:
+    class: CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler
+    arguments:
+      - '@codely.video.video.video_creator'
+    tags:
+      - { name: 'codely.video.command' }
+    public: false
+
+
+  # Query Handlers
+
+  codely.video.video.query_handler.find:
+    class: CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler
+    arguments:
+      - '@codely.video.video.video_finder'
+    tags:
+      - { name: 'codely.video.query' }
+    public: false
+
+
+  # Services
+
+  codely.video.video.video_creator:
+    class: CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreator
+    arguments:
+     - '@codely.video.video.repository'
+     - '@codely.video.domain_event_publisher'
+    public: false
+
+  codely.video.video.video_finder:
+    class: CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder
+    arguments:
+     - '@codely.video.video.repository'
+    public: false

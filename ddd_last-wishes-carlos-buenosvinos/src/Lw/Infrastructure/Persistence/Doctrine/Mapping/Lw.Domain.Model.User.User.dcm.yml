@@ -1,0 +1,27 @@
+Lw\Domain\Model\User\User:
+  type: entity
+  id:
+    userId:
+      column: id
+      type: UserId
+  table: lw_user
+  repositoryClass: Lw\Infrastructure\Domain\Model\User\DoctrineUserRepository
+  fields:
+    email:
+      type: string
+    password:
+      type: string
+  manyToMany:
+    wishes:
+      orphanRemoval: true
+      cascade: ["all"]
+      targetEntity: Lw\Domain\Model\Wish\Wish
+      joinTable:
+        name: lw_aggregate_user_wishes
+        joinColumns:
+          user_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          wish_id:
+            referencedColumnName: id
+            unique: true

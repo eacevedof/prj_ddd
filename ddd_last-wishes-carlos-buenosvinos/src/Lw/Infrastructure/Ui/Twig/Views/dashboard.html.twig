@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <p class="lead">If something would happen to me...</p>
+
+    {% for wish in wishes %}
+        {% include 'wish-item.html.twig' with {wish: wish, showOptions: true} %}
+    {% else %}
+        <div class="row">
+            <div class="col-xs-12">
+                ...do nothing, a bit sad.
+            </div>
+        </div>
+    {% endfor %}
+
+    <br/>
+    <p class="lead">You have {{ wishes|length }} wishes.</p>
+
+    <div class="row">
+        <div class="col-xs-12">
+            {% include "wish-form.html.twig" with {route: path('add-wish')} %}
+        </div>
+    </div>
+
+    <br/>
+    <p class="lead">Badges...</p>
+    {% for badge in badges %}
+        {% include 'badge-item.html.twig' with {badge: badge} %}
+    {% else %}
+        <div class="row">
+            <div class="col-xs-12">
+                No badges, for now.
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

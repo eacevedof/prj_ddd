@@ -1,0 +1,15 @@
+{% if wish is defined %}
+<form method="post" action="{{ route }}">
+    <input type="hidden" class="form-control" name="id" value="{{ wish.id }}" /><br/>
+    To: <input class="form-control" placeholder="my-son@gmail.com" name="email" type="text" maxlength="255" value="{{ wish.address }}"/><br/>
+    Message:<br/><textarea class="form-control" placeholder="If you are reading this..." name="content" type="text">{{ wish.content }}</textarea> <br/>
+    <button type="submit" class="btn btn-default">Update my wish</button>
+</form>
+{% else %}
+<form method="post" action="{{ route }}">
+    To: <input class="form-control" placeholder="my-son@gmail.com" name="email" type="text" maxlength="255"/><br/>
+    Message:<br/><textarea class="form-control" placeholder="If you are reading this..." name="content" type="text"></textarea> <br/>
+    <button type="submit" class="btn btn-primary">Make a wish (Non aggregate version)</button>
+    <button type="submit" name="aggregate" value="on" class="btn btn-inverse">Make a wish (Aggregate version)</button>
+</form>
+{% endif %}

@@ -1,0 +1,13 @@
+services:
+
+  codely.video.async_command_bus:
+    alias: codely.infrastructure.async_command_bus
+
+  codely.video.command_bus:
+    alias: codely.infrastructure.command_bus
+
+  codely.video.query_bus:
+    alias: codely.infrastructure.query_bus
+
+  codely.video.domain_event_publisher:
+    alias: codely.infrastructure.domain_event_publisher

@@ -1,0 +1,16 @@
+Lw\Domain\Model\Wish\Wish:
+  type: entity
+  table: lw_wish
+  repositoryClass: Lw\Infrastructure\Domain\Model\Wish\DoctrineWishRepository
+  id:
+    wishId:
+      column: id
+      type: WishId
+  fields:
+    address:
+      type: string
+    content:
+      type: text
+    userId:
+      type: UserId
+      column: user_id

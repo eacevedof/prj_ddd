@@ -1,0 +1,7 @@
+vendor
+#bin
+#!/bin/console
+#.idea
+#db.sqlite
+node_modules
+#src/Lw/Infrastructure/Ui/Web/Silex/Public/components
