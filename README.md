@@ -79,3 +79,35 @@
     - tiene un metodo estatico factory (Create) que obliga a pasar un quantity y product 
 ```
 - **INFRASTRUCTURE**
+```js
+├───Ordering.Infrastructure
+│	│	OrderingContext.cs
+    - extends Microsoft.EntityFrameworkCore.DbContext
+    - atributo publico estático DEFAULT_SCHEMA = ordering
+    - gestiona los select all de Orders, OrdersItems, Customer
+    - métodos: get/set Orders, OrderItems, Customer
+│	│
+│	├───Mappings
+│	|	CustomerMap.cs
+    - implementa Microsoft.EntityFrameworkCore.IEntityTypeConfiguration
+    - public void Configure(EntityTypeBuilder<Customer> customerConfiguration)
+    - mapea la clase con los campos en base de datos. Se define la primarykey, requeridos, tabla etc
+│	|	OrderItemMap.cs
+    - implementa Microsoft.EntityFrameworkCore.IEntityTypeConfiguration 
+    - public void Configure(EntityTypeBuilder<OrderItem> orderItemConfiguration)
+    - mapea atributos con el esquema de datos
+│	|	OrderMap.cs
+    - implementa Microsoft.EntityFrameworkCore.IEntityTypeConfiguration 
+    - public void Configure(EntityTypeBuilder<Order> orderConfiguration)
+    - usa los métodos del ORM para la configuración de los atributos
+│	│
+│	└───Repositories
+|   CustomerRepository.cs
+    - implementa Ordering.Domain.CustomerAggregate.ICustomerRepository (Domain.Common.IRepository implementa IAggregateRoot)
+    - define los métodos Add, Update, Find, FindById
+|		OrderRepository.cs
+    - implementa Ordering.Domain.OrderAggregate.IOrderRepository (Domain.Common.IRepository implementa IAggregateRoot)
+    - constructor obliga a pasar OrderingContext
+    - define metodos: Add, Get, Update
+```
+- **INFRASTRUCTURE**
