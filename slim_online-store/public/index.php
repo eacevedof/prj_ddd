@@ -1,6 +1,8 @@
 <?php
+//index.php
 declare(strict_types=1);
-
+include_once __DIR__."/../functions_debug.php";
+//prd("index.php");
 use App\Application\Handlers\HttpErrorHandler;
 use App\Application\Handlers\ShutdownHandler;
 use App\Application\ResponseEmitter\ResponseEmitter;
