@@ -114,12 +114,15 @@
 ```JS
 ├───Ordering.Application
 │   │ IOrdersService.cs
+      - interfaz básica
       - define un método: OrderPlacedViewModel PlaceOrder(ShoppingCartInputModel shoppingCartInputModel);
 │   │ OrdersService.cs
       - implementa IOrdersService
       - tiene atributos: _orderRepository, _shippingService
       - usa: Ordering.Domain.OrderAggregate.IOrderRepository y IShippingService
-      - usa: ShoppingCartInputModel  
+      - usa: ShoppingCartInputModel
+      - cuenta con el método principal: public OrderPlacedViewModel PlaceOrder que recibe un ShoppingCartInputModel
+      - este método CREA EL PEDIDO
 │   │
 │   ├───ExternalServices
 │   │ IShippingService.cs
@@ -135,4 +138,62 @@
 │     OrderProcessedViewModel.cs
       - clase básica con atributos: OrderId, ShippingDetails con sus getters y setters 
       - usa OrderShippingConfirmation
+```
+- **PRESENTATION**
+```js
+└───Web.MVC
+	|	Program.cs
+		- función Main(string[] args)
+	|	Startup.cs
+		- usa: IConfiguration,IServiceCollection,IApplicationBuilder,IHostingEnvironment 
+		- tiene metodos: ConfigureServices, Configure
+		- se definen las rutas
+	|	Web.MVC.csproj
+		- xml con la configuración
+	│
+	├───Controllers
+	|	HomeController.cs
+			- no tiene dependencias de DDD
+			- extiende de Microsoft.AspNetCore.Mvc.Controller
+			- tiene métodos: Index, About, Contact, Error
+			- los métodos devuelven un objeto de interfaz IActionResult, `return view()`
+	|	OrderController.cs
+			- usa: Ordering.Application, Ordering.Application.InputModels;
+			- extiende de Microsoft.AspNetCore.Mvc.Controller
+			- tiene un atributo IOrdersService _ordersService
+			- se le inyecta en su constructor un IOrdersService, se le debería de pasar: Ordering.Application.OrdersService
+			- tiene métodos: PlaceTheOrder, RetrieveCurrentShoppingCart 
+			- public IActionResult PlaceTheOrder() hace la lógica 
+				var cart = RetrieveCurrentShoppingCart();
+				var viewModel = _ordersService.PlaceOrder(cart); 
+				return View("OrderPlaced", viewModel);
+	│
+	├───Models
+	|	ErrorViewModel.cs
+			- public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+	│
+	├───Properties
+	|	launchSettings.json
+			- configuración de IIS
+	│
+	├───Views
+	|	|	_ViewImports.cshtml
+	|	|	_ViewStart.cshtml
+	|	│
+	|	├───Home
+	|	|	About.cshtml
+	|	|	Contact.cshtml
+	|	|	Index.cshtml
+	|	│
+	|	├───Order
+	|	|	OrderPlaced.cshtml
+			- template de csharp
+			- importa el modelo: Ordering.Application.ViewModel.OrderPlacedViewModel
+	|	│
+	|	└───Shared
+	|	  Error.cshtml
+	|	  _Layout.cshtml
+			- template principal
+	|	  _ValidationScriptsPartial.cshtml
+  
 ```
