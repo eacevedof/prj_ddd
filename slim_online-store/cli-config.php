@@ -3,7 +3,7 @@ use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
 require 'vendor/autoload.php';
 
-$settings['doctrine'] = [
+$settings = [
     'meta' => [
         'entity_path' => [
             //'app/src/Entity'
@@ -22,7 +22,6 @@ $settings['doctrine'] = [
         'password' => 'secret',
     ]
 ];
-$settings = $settings['doctrine'];
 
 $config = \Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(
     $settings['meta']['entity_path'],
