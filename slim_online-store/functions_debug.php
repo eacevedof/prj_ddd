@@ -2,9 +2,9 @@
 /**
  * @author Eduardo Acevedo Farje.
  * @link www.eduardoaf.com
- * @version 1.7.0
+ * @version 1.7.1
  * @file functions_debug.php 
- * @date 22-09-2019 18:32 (SPAIN)
+ * @date 22-09-2019 18:44 (SPAIN)
  * @observations: Functions to print variables
  * @requires functions_string.php 1.0.2
  *  load:9
@@ -65,7 +65,7 @@ if(!function_exists("pr"))
             $sTitle=" $sTitle: ";
 
         if(!is_string($var))
-            $var = var_export($var,TRUE);
+            $var = print_r($var,TRUE);
         #F1E087
         $sTagPre = "<pre function=\"pr\" style=\"border:1px solid black;background:yellow; padding:0px; color:black; font-size:12px;\">\n";
         $sTagFinPre = "</pre>\n";    
@@ -81,7 +81,7 @@ if(!function_exists("lg"))
         $sNow = date("Y-m-d_H:i:s");
         if($sTitle) $sTitle = "<<  $sTitle >>";
         $sTitle = PHP_EOL."$sNow: $sTitle";
-        if(!is_string($var)) $var = var_export($var,1);
+        if(!is_string($var)) $var = print_r($var,1);
         if($var) $var = PHP_EOL.$var.PHP_EOL;
         $var = $sTitle.$var;
 
@@ -124,10 +124,10 @@ function bug($var, $sVarName="var", $isDie=false)
             $arSQLWords = array("select","from","inner join","insert into","update","delete");
             $sTmpVar = strtolower($var);
             foreach($arSQLWords as $sWord)
-                //var_dump("word:$sWord, string:$sTmpVar",strpos($sWord,$sTmpVar));
+                //print_r("word:$sWord, string:$sTmpVar",strpos($sWord,$sTmpVar));
                 if(strpos($sTmpVar,$sWord)!==false){$isSQL=true; break;}
 
-            //var_dump($isSQL);
+            //print_r($isSQL);
             if($isSQL)
             {
                 if(!strpos($var,"\nFROM"));
@@ -152,7 +152,7 @@ function bug($var, $sVarName="var", $isDie=false)
         $nombreVariable .= $sTagFinPre;
         echo $nombreVariable;
         echo  "<pre style=\" background:#E2EDA8; font-size:12px; padding-left:10px; text-align:left; color:black; font-weight:normal; font-family: \'Courier New\', Courier, monospace !important;\">\n";
-        var_dump($var);
+        print_r($var);
         echo  "</pre>";
 
         if($isDie)die;  
@@ -277,7 +277,7 @@ function bugipath($sTitle=""){ bug(explode(PATH_SEPARATOR,get_include_path().$sT
 
 function bugcond($var,$isCheckCondition)
 {
-    //var_dump($isCheckCondition);
+    //print_r($isCheckCondition);
     if($isCheckCondition)
         bug($var);
     else 
@@ -290,7 +290,7 @@ function bugraw($var,$sVarName=NULL)
     if($sVarName)
         $sReturn .= "$sVarName: \n";
 
-    $sReturn .= var_export($var,1);
+    $sReturn .= print_r($var,1);
     echo $sReturn;
 }
 
