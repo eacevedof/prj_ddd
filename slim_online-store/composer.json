@@ -17,9 +17,10 @@
         }
     ],
     "require": {
-        "ext-json": "*",
-        "monolog/monolog": "^1.24",
         "php": ">=7.1",
+        "ext-json": "*",
+        "doctrine/orm": "^2",
+        "monolog/monolog": "^1.24",
         "php-di/php-di": "^6.0",
         "slim/psr7": "^0.5",
         "slim/slim": "^4.1"
