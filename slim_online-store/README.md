@@ -43,4 +43,10 @@ That's it! Now go build something cool.
 # arrancar homestead:
 /e/vagrant/boxes/homestead vagrant up
 $ vagrant ssh homestead
+
+# cada vez que se cambia Homestead.yaml
+$ vagrant reload --provision
+$ vagrant reload
+$ vagrant halt
 ```
+- [http://onlinestore.loc/](http://onlinestore.loc/)
