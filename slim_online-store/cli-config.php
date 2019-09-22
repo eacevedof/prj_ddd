@@ -1,14 +1,37 @@
 <?php
-//doctrine
-//cli-config.php
-
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
-use Slim\Container;
 
-/** @var Container $container */
-$container = require_once __DIR__ . '/bootstrap.php';
+require 'vendor/autoload.php';
 
-ConsoleRunner::run(
-    ConsoleRunner::createHelperSet($container[EntityManager::class])
+$settings['doctrine'] = [
+    'meta' => [
+        'entity_path' => [
+            //'app/src/Entity'
+            'entities'
+        ],
+        'auto_generate_proxies' => true,
+        'proxy_dir' =>  __DIR__.'/../cache/proxies',
+        'cache' => null,
+    ],
+    //https://blog.sub85.com/slim-3-with-doctrine-2.html
+    'connection' => [
+        'driver'   => 'pdo_mysql',
+        'host'     => 'localhost',
+        'dbname'   => 'db_slimstore',
+        'user'     => 'homestead',
+        'password' => 'secret',
+    ]
+];
+$settings = $settings['doctrine'];
+
+$config = \Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(
+    $settings['meta']['entity_path'],
+    $settings['meta']['auto_generate_proxies'],
+    $settings['meta']['proxy_dir'],
+    $settings['meta']['cache'],
+    false
 );
+
+$em = \Doctrine\ORM\EntityManager::create($settings['connection'], $config);
+
+return ConsoleRunner::createHelperSet($em);
