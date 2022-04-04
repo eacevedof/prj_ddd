@@ -1,0 +1,16 @@
+{
+    "name": "ioedu/blog-publish-mvc",
+    "description": "blog mvc",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eduardo. A.F.",
+            "email": "eacevedf@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
