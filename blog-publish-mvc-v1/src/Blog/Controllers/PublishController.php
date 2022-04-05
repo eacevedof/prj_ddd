@@ -21,14 +21,14 @@ final class PublishController
 
         $postRepository = new PostRepository();
         $post = $postRepository->ofIdOrFail($postId);
-        $post->publish();
-        $postRepository->save($post);
-
         $userRepository = new UserRepository();
         $user = $userRepository->ofIdOrFail($userId);
+
+        $post->publish();
+        $postRepository->save($post);
         $this->notifyToUser($post, $user);
 
-        $this->set("post",$post);
+        $this->set("post", $post);
         $this->render("post-published");
     }
 
@@ -38,9 +38,10 @@ final class PublishController
         mb_send_mail(
             $user->email(),
             "Your post with id {$post->id()} has been published",
-            "Congrats!"
+            "Congrats! your post has been published"
         );
 
+        echo "monologging ...";
         (new Monolog())->log("Post with title {$post->title()} published by user {$user->email()}");
     }
 
