@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set("UTC");
+ob_start();
 include_once "../src/autoload.php";
 
 use App\Blog\Controllers\PublishController;
@@ -10,3 +12,4 @@ catch (Exception | Throwable $ex) {
     pr($ex->getMessage());
     pr("file: ".$ex->getFile()." (".$ex->getLine().")");
 }
+ob_end_flush();
