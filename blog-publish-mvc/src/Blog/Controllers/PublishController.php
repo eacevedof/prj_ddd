@@ -2,7 +2,7 @@
 namespace App\Blog\Controllers;
 
 use App\Blog\Models\Repositories\UserRepository;
-use App\Blog\Mvc\Repositories\PostRepository;
+use App\Blog\Models\Repositories\PostRepository;
 
 final class PublishController
 {

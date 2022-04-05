@@ -1,5 +1,5 @@
 <?php
-namespace App\Blog\Mvc\Repositories;
+namespace App\Blog\Models\Repositories;
 
 use App\Blog\Models\PostEntity;
 

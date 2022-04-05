@@ -36,16 +36,9 @@ final class PostEntity
         return $this->content;
     }
 
-    public function publish(UserEntity $user): self
+    public function publish(): self
     {
         $this->status = 1;
-        echo "post status changed ...<br/>";
-        DomainEventPublisher::instance()->publish(
-            new PostWasPublishedEvent(
-                $this->id(),
-                $user->id()
-            )
-        );
         return $this;
     }
 }
