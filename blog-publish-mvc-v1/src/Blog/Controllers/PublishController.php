@@ -29,6 +29,7 @@ final class PublishController
         $this->notifyToUser($post, $user);
 
         $this->set("post", $post);
+        pr("rendering saved post ...");
         $this->render("post-published");
     }
 
