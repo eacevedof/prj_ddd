@@ -1,8 +1,10 @@
 <?php
 namespace App\Blog\Controllers;
 
+use App\Blog\Models\PostEntity;
 use App\Blog\Models\Repositories\UserRepository;
 use App\Blog\Models\Repositories\PostRepository;
+use App\Blog\Models\UserEntity;
 
 final class PublishController
 {
@@ -10,12 +12,27 @@ final class PublishController
     {
         $userId = $this->getRequest("userId", 1, "post");
         $postId = $this->getRequest("postId", 1, "post");
+
         $postRepository = new PostRepository();
+        $post = $postRepository->ofIdOrFail($postId);
+        $post->publish();
+        $postRepository->save($post);
+
         $userRepository = new UserRepository();
+        $user = $userRepository->ofIdOrFail($userId);
+        $this->notifyToUser($user);
 
+        $this->render(["post"=>$post]);
+    }
 
-
-        $this->render(["post"=>null]);
+    private function notifyToUser(PostEntity $post, UserEntity $user): void
+    {
+        echo "sending email ...<br/>";
+        mb_send_mail(
+            $user->email(),
+            "Your post with id {$post->id()} has been published",
+            "Congrats!"
+        );
     }
 
     private function render(array $vars=[]): void
