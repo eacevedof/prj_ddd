@@ -15,14 +15,14 @@ final class PublishController
 
 
 
-        $this->render(["post"=>$post]);
+        $this->render(["post"=>null]);
     }
 
-    private function render(array $vars): void
+    private function render(array $vars=[]): void
     {
         foreach ($vars as $name=>$value)
             $$name = $value;
-        include_once "../Views/post-published.php";
+        include_once "Blog/Views/post-published.php";
         exit();
     }
 

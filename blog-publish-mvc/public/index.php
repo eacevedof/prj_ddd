@@ -2,5 +2,11 @@
 include_once "../src/autoload.php";
 
 use App\Blog\Controllers\PublishController;
-var_dump(get_included_files());
-(new PublishController())->publish();
+
+try {
+    (new PublishController())->publish();
+}
+catch (Exception | Throwable $ex) {
+    pr($ex->getMessage());
+    pr("file: ".$ex->getFile()." (".$ex->getLine().")");
+}
