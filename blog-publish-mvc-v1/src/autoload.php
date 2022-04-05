@@ -21,6 +21,19 @@ function pr($var="", string $title=""): void
         ."</pre>";
 }
 
+function err($var="", string $title="", $die=0): void
+{
+    if($title) $title=" $title: ";
+
+    $content = $var;
+    if(!is_string($var)) $content = var_export($var,true);
+    if($title) echo "<b style=\"font-size: small; font-family: 'Roboto', 'sans-serif'\">$title</b>";
+    echo "<pre style=\"background:red; color: white; border:1px solid black;\">"
+        .$content
+        ."</pre>";
+    if($die) die;
+}
+
 $pathappds = dirname(__FILE__);
 set_include_path(get_include_path().":".$pathappds);
 spl_autoload_register(function(string $nsclass) use ($pathappds) {

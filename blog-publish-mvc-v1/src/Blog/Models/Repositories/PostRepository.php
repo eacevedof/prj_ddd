@@ -26,5 +26,6 @@ final class PostRepository
     public function save(PostEntity $postEntity): void
     {
         pr("persisting post ...");
+        throw new \Exception("Blocked table timeout");
     }
 }
