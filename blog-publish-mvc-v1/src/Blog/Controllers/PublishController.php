@@ -16,7 +16,7 @@ final class PublishController
 
     public function publish(): void
     {
-        $userId = $this->getPost("userId", 1);
+        $userId = $this->getSession("userId", 1);
         $postId = $this->getPost("postId", 1);
 
         $postRepository = new PostRepository();

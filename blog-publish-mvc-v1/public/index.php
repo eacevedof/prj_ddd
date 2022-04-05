@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set("UTC");
+session_start();
 ob_start();
 include_once "../src/autoload.php";
 
