@@ -3,7 +3,7 @@ function dd($var, string $title=""): void
 {
     $content= var_export($var,1);
     if($title) echo "<b style=\"font-size: small; font-family: 'Roboto', 'sans-serif'\">$title</b>";
-    echo "<pre style=\"background:greenyellow;border:1px solid;\">"
+    echo "<pre style=\"background:greenyellow;border:1px solid black;\">"
         .$content
         ."</pre>";
     die;
@@ -16,7 +16,7 @@ function pr($var="", string $title=""): void
     $content = $var;
     if(!is_string($var)) $content = var_export($var,true);
     if($title) echo "<b style=\"font-size: small; font-family: 'Roboto', 'sans-serif'\">$title</b>";
-    echo "<pre style=\"background:yellow;border:1px solid;\">"
+    echo "<pre style=\"background:yellow;border:1px solid black;\">"
         .$content
         ."</pre>";
 }
