@@ -5,13 +5,18 @@ use App\Blog\Models\PostEntity;
 use App\Blog\Models\Repositories\UserRepository;
 use App\Blog\Models\Repositories\PostRepository;
 use App\Blog\Models\UserEntity;
+use App\Blog\Utils\RequestTrait;
+use App\Blog\Utils\ViewTrait;
 
 final class PublishController
 {
+    use RequestTrait;
+    use ViewTrait;
+
     public function publish(): void
     {
-        $userId = $this->getRequest("userId", 1, "post");
-        $postId = $this->getRequest("postId", 1, "post");
+        $userId = $this->getPost("userId", 1);
+        $postId = $this->getPost("postId", 1);
 
         $postRepository = new PostRepository();
         $post = $postRepository->ofIdOrFail($postId);
@@ -22,7 +27,8 @@ final class PublishController
         $user = $userRepository->ofIdOrFail($userId);
         $this->notifyToUser($post, $user);
 
-        $this->render(["post"=>$post]);
+        $this->set("post",$post);
+        $this->render("post-published");
     }
 
     private function notifyToUser(PostEntity $post, UserEntity $user): void
@@ -35,17 +41,4 @@ final class PublishController
         );
     }
 
-    private function render(array $vars=[]): void
-    {
-        foreach ($vars as $name=>$value)
-            $$name = $value;
-        include_once "Blog/Views/post-published.php";
-        exit();
-    }
-
-    private function getRequest(string $key, $default=null, string $from="get")
-    {
-        if($from==="post") return $_POST[$key] ?? $default;
-        return $_GET[$key] ?? $default;
-    }
 }
