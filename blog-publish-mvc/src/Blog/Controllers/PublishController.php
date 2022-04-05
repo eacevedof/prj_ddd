@@ -7,6 +7,7 @@ use App\Blog\Models\Repositories\PostRepository;
 use App\Blog\Models\UserEntity;
 use App\Blog\Utils\RequestTrait;
 use App\Blog\Utils\ViewTrait;
+use App\Blog\Utils\Monolog;
 
 final class PublishController
 {
@@ -39,6 +40,8 @@ final class PublishController
             "Your post with id {$post->id()} has been published",
             "Congrats!"
         );
+
+        (new Monolog())->log("Post with title {$post->title()} published by user {$user->email()}");
     }
 
 }
