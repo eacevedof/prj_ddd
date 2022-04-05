@@ -8,6 +8,7 @@ use App\Blog\Models\UserEntity;
 use App\Blog\Utils\RequestTrait;
 use App\Blog\Utils\ViewTrait;
 use App\Blog\Utils\Monolog;
+use \Exception;
 
 final class PublishController
 {
@@ -19,16 +20,21 @@ final class PublishController
         $userId = $this->getSession("userId", 1);
         $postId = $this->getPost("postId", 1);
 
-        $postRepository = new PostRepository();
-        $post = $postRepository->ofIdOrFail($postId);
-        $userRepository = new UserRepository();
-        $user = $userRepository->ofIdOrFail($userId);
+        try {
+            $userRepository = new UserRepository();
+            $user = $userRepository->ofIdOrFail($userId);
+            $postRepository = new PostRepository();
+            $post = $postRepository->ofIdOrFail($postId);
 
-        $post->publish();
-        $postRepository->save($post);
-        $this->notifyToUser($post, $user);
+            $post->publish();
+            $postRepository->save($post);
+            $this->notifyToUser($post, $user);
 
-        $this->set("post", $post);
+            $this->set("post", $post);
+        }
+        catch (Exception $e) {
+            $this->set("error", $e->getMessage());
+        }
         pr("rendering saved post ...");
         $this->render("post-published");
     }
@@ -41,7 +47,6 @@ final class PublishController
             "Your post with id {$post->id()} has been published",
             "Congrats! your post has been published"
         );
-
         pr("monologging ...");
         (new Monolog())->log("Post with title {$post->title()} published by user {$user->email()}");
     }
