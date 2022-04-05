@@ -20,7 +20,7 @@ final class PublishController
 
         $userRepository = new UserRepository();
         $user = $userRepository->ofIdOrFail($userId);
-        $this->notifyToUser($user);
+        $this->notifyToUser($post, $user);
 
         $this->render(["post"=>$post]);
     }
