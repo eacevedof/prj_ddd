@@ -6,6 +6,7 @@ function dd($var, string $title=""): void
     echo "<pre style=\"background:greenyellow;border:1px solid;\">"
         .$content
         ."</pre>";
+    die;
 }
 
 function pr($var="", string $title=""): void
