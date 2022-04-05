@@ -34,14 +34,14 @@ final class PublishController
 
     private function notifyToUser(PostEntity $post, UserEntity $user): void
     {
-        echo "sending email ...<br/>";
+        pr("sending email ...");
         mb_send_mail(
             $user->email(),
             "Your post with id {$post->id()} has been published",
             "Congrats! your post has been published"
         );
 
-        echo "monologging ...";
+        pr("monologging ...");
         (new Monolog())->log("Post with title {$post->title()} published by user {$user->email()}");
     }
 

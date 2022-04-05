@@ -39,6 +39,7 @@ final class PostEntity
     public function publish(): self
     {
         $this->status = 1;
+        pr("post status changed ...");
         return $this;
     }
 }

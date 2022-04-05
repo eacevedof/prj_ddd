@@ -25,6 +25,6 @@ final class PostRepository
 
     public function save(PostEntity $postEntity): void
     {
-        echo "post saved ...<br/>";
+        pr("persisting post ...");
     }
 }
