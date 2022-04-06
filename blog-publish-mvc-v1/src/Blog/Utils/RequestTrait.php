@@ -3,17 +3,17 @@ namespace App\Blog\Utils;
 
 trait RequestTrait
 {
-    private function getGet($key, $default=null)
+    private function getRequestGet($key, $default=null)
     {
         return $_GET[$key] ?? $default;
     }
 
-    private function getPost($key, $default=null)
+    private function getRequestPost($key, $default=null)
     {
         return $_POST[$key] ?? $default;
     }
 
-    private function getSession($key, $default=null)
+    private function getRequestSession($key, $default=null)
     {
         return $_SESSION[$key] ?? $default;
     }
