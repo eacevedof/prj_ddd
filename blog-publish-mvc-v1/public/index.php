@@ -4,7 +4,7 @@ session_start();
 ob_start();
 include_once "../src/autoload.php";
 
-use App\Blog\Controllers\PublishController;
+use App\Blog\Infrastructure\PublishController;
 
 try {
     (new PublishController())->publish();

@@ -1,7 +1,7 @@
 <?php
-namespace App\Blog\Models\Repositories;
+namespace App\Blog\Infrastructure\Repositories;
 
-use App\Blog\Models\PostEntity;
+use App\Blog\Domain\PostEntity;
 
 final class PostRepository
 {

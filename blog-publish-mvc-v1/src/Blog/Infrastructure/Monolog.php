@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Blog\Utils;
+namespace App\Blog\Infrastructure;
 
 final class Monolog
 {

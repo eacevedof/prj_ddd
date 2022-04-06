@@ -1,7 +1,7 @@
 <?php
-namespace App\Blog\Models\Repositories;
+namespace App\Blog\Infrastructure\Repositories;
 
-use App\Blog\Models\UserEntity;
+use App\Blog\Domain\UserEntity;
 
 final class UserRepository
 {

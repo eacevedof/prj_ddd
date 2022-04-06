@@ -1,11 +1,9 @@
 <?php
-namespace App\Blog\Controllers;
+namespace App\Blog\Infrastructure;
 
-use App\Blog\Utils\RequestTrait;
-use App\Blog\Utils\ViewTrait;
-use App\Blog\Models\Repositories\UserRepository;
-use App\Blog\Models\Repositories\PostRepository;
-use App\Blog\Services\PostPublishService;
+use App\Blog\Infrastructure\Repositories\UserRepository;
+use App\Blog\Infrastructure\Repositories\PostRepository;
+use App\Blog\Application\PostPublishService;
 use \Exception;
 
 final class PublishController

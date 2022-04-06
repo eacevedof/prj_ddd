@@ -1,11 +1,11 @@
 <?php
-namespace App\Blog\Services;
+namespace App\Blog\Application;
 
-use App\Blog\Models\PostEntity;
-use App\Blog\Models\Repositories\PostRepository;
-use App\Blog\Models\Repositories\UserRepository;
-use App\Blog\Models\UserEntity;
-use App\Blog\Utils\Monolog;
+use App\Blog\Domain\PostEntity;
+use App\Blog\Infrastructure\Repositories\PostRepository;
+use App\Blog\Infrastructure\Repositories\UserRepository;
+use App\Blog\Domain\UserEntity;
+use App\Blog\Infrastructure\Monolog;
 
 final class PostPublishService
 {

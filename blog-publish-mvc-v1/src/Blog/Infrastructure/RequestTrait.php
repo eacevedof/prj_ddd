@@ -1,5 +1,5 @@
 <?php
-namespace App\Blog\Utils;
+namespace App\Blog\Infrastructure;
 
 trait RequestTrait
 {

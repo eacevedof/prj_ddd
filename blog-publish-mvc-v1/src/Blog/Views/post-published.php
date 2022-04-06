@@ -1,6 +1,6 @@
 <?php
 /**
- * @var App\Blog\Models\PostEntity $post;
+ * @var App\Blog\Domain\PostEntity $post;
  */
 if (isset($error)) err($error, "Some error occurred:", 1);
 ?>

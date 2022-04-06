@@ -1,5 +1,5 @@
 <?php
-namespace App\Blog\Models;
+namespace App\Blog\Domain;
 
 final class PostEntity
 {
