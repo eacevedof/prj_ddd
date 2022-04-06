@@ -12,7 +12,7 @@ final class Monolog
             "",
             date("Y-m-d H:i:s"),
         ];
-        if($title) $final[] = $title.":";
+        if($title) $final[] = $title;
         $final[] = $content;
         file_put_contents($path, implode("\n", $final), FILE_APPEND);
     }
