@@ -3,6 +3,8 @@ namespace App\Blog\Infrastructure;
 
 use App\Blog\Infrastructure\Repositories\UserRepository;
 use App\Blog\Infrastructure\Repositories\PostRepository;
+use App\Blog\Application\MonologService;
+use App\Blog\Application\NotifyService;
 use App\Blog\Application\PostPublishService;
 use \Exception;
 
@@ -18,8 +20,9 @@ final class PublishController
 
         try {
             $post = (new PostPublishService(
-                new UserRepository(),
-                new PostRepository()
+                $postRepository = new PostRepository(),
+                new NotifyService($userRepository = new UserRepository(), $postRepository),
+                new MonologService($userRepository, $postRepository)
             ))->execute($userId, $postId);
 
             $this->set("post", $post);
