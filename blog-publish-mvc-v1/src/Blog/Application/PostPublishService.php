@@ -2,16 +2,16 @@
 namespace App\Blog\Application;
 
 use App\Blog\Domain\PostEntity;
-use App\Blog\Infrastructure\Repositories\PostRepository;
+use App\Blog\Domain\Ports\IPostRepository;
 
 final class PostPublishService
 {
-    private PostRepository $postRepository;
+    private IPostRepository $postRepository;
     private NotifyService $notifyService;
     private MonologService $monologService;
 
     public function __construct(
-        PostRepository $postRepository,
+        IPostRepository $postRepository,
         NotifyService $notifyService,
         MonologService $monologService
     )
