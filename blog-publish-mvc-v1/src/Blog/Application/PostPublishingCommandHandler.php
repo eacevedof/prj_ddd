@@ -4,6 +4,8 @@ namespace App\Blog\Application;
 use App\Blog\Domain\PostEntity;
 use App\Blog\Domain\Ports\IPostRepository;
 use App\Blog\Application\Commands\PublishCommand;
+use App\Blog\Application\Events\PostPublishedEvent;
+use App\Blog\Infrastructure\EventSourcing\DomainEventPublisher;
 
 final class PostPublishingCommandHandler implements ICommandHandler
 {
@@ -24,11 +26,16 @@ final class PostPublishingCommandHandler implements ICommandHandler
 
     public function execute(PublishCommand $command): PostEntity
     {
-        $post = $this->postRepository->ofIdOrFail($postId = $command->postId());
+        DomainEventPublisher::instance()->subscribe($this->notifyService);
+        DomainEventPublisher::instance()->subscribe($this->monologService);
+
+        $post = $this->postRepository->ofIdOrFail($command->postId());
         $post->publish();
         $this->postRepository->save($post);
-        $this->notifyService->emailOnPostPublished($userId = $command->authorId(), $postId);
-        $this->monologService->logOnPostPublished($userId, $postId);
+        DomainEventPublisher::instance()->publish(new PostPublishedEvent(
+            $command->authorId(),
+            $command->postId()
+        ));
         return $post;
     }
 }

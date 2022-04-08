@@ -1,10 +1,13 @@
 <?php
 namespace App\Blog\Application;
 
+use App\Blog\Application\Events\PostPublishedEvent;
+use App\Blog\Infrastructure\EventSourcing\IDomainEvent;
+use App\Blog\Infrastructure\EventSourcing\IDomainEventSubscriber;
 use App\Blog\Infrastructure\Repositories\PostRepository;
 use App\Blog\Infrastructure\Repositories\UserRepository;
 
-final class NotifyService
+final class NotifyService implements IDomainEventSubscriber
 {
     private UserRepository $userRepository;
     private PostRepository $postRepository;
@@ -15,7 +18,7 @@ final class NotifyService
         $this->postRepository = $postRepository;
     }
 
-    public function emailOnPostPublished(int $authorId, int $postId): void
+    private function emailOnPostPublished(int $authorId, int $postId): void
     {
         $emailTo = $this->userRepository->ofIdOrFail($authorId)->email();
         pr("sending email ...");
@@ -24,5 +27,15 @@ final class NotifyService
             "Your post with id {$postId} has been published",
             "Congrats!"
         );
+    }
+
+    public function onDomainEvent(IDomainEvent $domainEvent): IDomainEventSubscriber
+    {
+        if (get_class($domainEvent)!==PostPublishedEvent::class) return $this;
+        $this->emailOnPostPublished(
+            $domainEvent->authorId(),
+            $domainEvent->postId()
+        );
+        return $this;
     }
 }
