@@ -3,22 +3,22 @@ namespace App\Blog\Application\Commands;
 
 final class PublishCommand implements ICommand
 {
-    private int $postId;
     private int $authorId;
+    private int $postId;
 
-    public function __construct(int $postId, int $authorId)
+    public function __construct(int $authorId, int $postId)
     {
-        $this->postId = $postId;
         $this->authorId = $authorId;
-    }
-
-    public function postId():int
-    {
-        return $this->postId;
+        $this->postId = $postId;
     }
 
     public function authorId():int
     {
         return $this->authorId;
+    }
+
+    public function postId():int
+    {
+        return $this->postId;
     }
 }

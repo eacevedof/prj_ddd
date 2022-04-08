@@ -3,8 +3,9 @@ namespace App\Blog\Application;
 
 use App\Blog\Domain\PostEntity;
 use App\Blog\Domain\Ports\IPostRepository;
+use App\Blog\Application\Commands\PublishCommand;
 
-final class PostPublishService
+final class PostPublishingCommandHandler implements ICommandHandler
 {
     private IPostRepository $postRepository;
     private NotifyService $notifyService;
@@ -21,12 +22,12 @@ final class PostPublishService
         $this->monologService = $monologService;
     }
 
-    public function execute(int $userId, int $postId): PostEntity
+    public function execute(PublishCommand $command): PostEntity
     {
-        $post = $this->postRepository->ofIdOrFail($postId);
+        $post = $this->postRepository->ofIdOrFail($postId = $command->postId());
         $post->publish();
         $this->postRepository->save($post);
-        $this->notifyService->emailOnPostPublished($userId, $postId);
+        $this->notifyService->emailOnPostPublished($userId = $command->authorId(), $postId);
         $this->monologService->logOnPostPublished($userId, $postId);
         return $post;
     }
