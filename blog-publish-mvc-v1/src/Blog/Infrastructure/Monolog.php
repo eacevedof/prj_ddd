@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Blog\Infrastructure;
 
 final class Monolog
