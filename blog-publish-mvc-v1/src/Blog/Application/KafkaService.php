@@ -12,7 +12,7 @@ final class KafkaService implements IDomainEventSubscriber
     {
         if (get_class($domainEvent)!==PostPublishedEvent::class) return $this;
 
-        pr("kafkaing ...")
+        pr("kafkaing ...");
         (new Kafka())->produce(serialize($domainEvent), PostPublishedEvent::class);
         return $this;
     }
