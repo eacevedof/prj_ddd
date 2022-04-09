@@ -4,8 +4,5 @@ help: ## Show this help message
 	@echo "targets:"
 	@egrep "^(.+)\:\ ##\ (.+)" ${MAKEFILE_LIST} | column -t -c 2 -s ":#"
 
-remlogs: ## remove logs
-	rm -fr ./logs/custom/*.log
-
-server: ## dumpdb
+server: ## publish in port 2000
 	php -S localhost:2000 -t ./public
