@@ -15,7 +15,7 @@
         "symfony/config": "^2.5",
         "symfony/console": "^2.5",
         "symfony/form": "^2.5",
-        "symfony/security": "^2.5",
+        "symfony/security": "^3.2",
         "symfony/translation": "^2.5",
         "symfony/twig-bridge": "^2.5",
         "twig/twig": ">=1.8,<2.0-dev",
