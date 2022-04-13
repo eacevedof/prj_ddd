@@ -1,6 +1,9 @@
 # prj_ddd
 - Entendiendo la arquitectura Domain Driven Design
 
+## [Video - Introducción a Domain Driven Design (DDD)](https://www.youtube.com/watch?v=g9hTQQHPj2I)
+  - Explicación muy clara de todos los componentes de DDD
+
 ## [ddd_cqrs-php-example-codely](https://github.com/eacevedof/prj_ddd/tree/master/ddd_cqrs-php-example-codely)
   - Esqueleto de un proyecto php en DDD
 
