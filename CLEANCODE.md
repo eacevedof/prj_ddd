@@ -104,6 +104,3 @@
   ```
   - Los arrays los definimos en plural y con valor semántico. `foreach ($assets as $asset)`
 - las variables se definen lo más cerca de donde se utilizan
-    
-### Flujo
-- 
