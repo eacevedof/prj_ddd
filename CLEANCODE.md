@@ -62,6 +62,7 @@
   - IAssetsList
   - AssetsException
     - AssetsListGetException
+    - [Name constructor en excepciones](https://youtu.be/J0SFLG5B3wo?t=439)
   - AssetsXxxEnum
 
 - ### otros
