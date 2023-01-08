@@ -15,10 +15,11 @@
 
 
 - ### Encapsulación
-  - las clases deben ser de base final
-  - por defecto todos sus atributos private
+  - las clases deben ser **final** por defecto `final class AssetsListGetController`
+  - por defecto todos sus atributos y métodos **private**
   - todos sus métodos incialmente deben ser privados a excepción del constructor y el método `__invoke()`
-  - en el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica para que ha sido creada la clase
+  - en el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica 
+  para que ha sido creada la clase. **AssetsListGet**
 
 - ### Clases y su responsabilidad en una aplicación
   - Sufijo que identifica su rol
