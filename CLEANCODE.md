@@ -104,5 +104,6 @@
   - Los arrays los definimos en plural y con valor semántico. 
   ```php
   foreach ($assets as $asset)
+  foreach ($roles as $role)
   ```
 - las variables se definen lo más cerca de donde se utilizan
