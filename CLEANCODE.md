@@ -1,5 +1,6 @@
 ## Manifiesto cleancode
 
+- [Repo ejemplo Codely](https://github.com/CodelyTV/php-ddd-example/tree/main/src/Mooc/Courses)
 - Los endpoints:
   - deberían ser user friendly y aplicando el formato slug en las urls
   - usamos guiones medios y siempre minúsculas
@@ -7,6 +8,7 @@
     - https://undominio.com/Categoria/otraCategoria/Parametro_1 (nok)
 
 ### BE
+
 - ### encapsulación
   - las clases deben ser de base final
   - por defecto todos sus atributos private
@@ -17,12 +19,14 @@
 - ### nomenclatura
   - deben llevar el sufijo del tipo al que pertenecen 
     - GettingAssetListController
+      - https://youtu.be/o0w-jYun6AU?t=1465
+    - GettingAssetListCommand (dto)
+      - 
     - GettingAssetListHandler
-    - GettingAssetListCommand
-    - GettingAssetListEvent
-    - GettingAssetListService
-    - GettingAssetListDto
     - GettingAssetListRequestValidator
+    - GettingAssetListService
+    - GettingAssetListRecoveredEvent
+    - GettingAssetListDto
     - IGettingAssetRepository
     - 
     - AssetEntity
