@@ -36,7 +36,9 @@
       - https://youtu.be/o0w-jYun6AU?t=1595
     - AssetsListGetDoneEvent
     - AssetsListGetDto
-    - AssetsListGetTransformer
+    - AssetsListGetApiTransformer
+    - AssetsListGetConsoleTransformer
+    - AssetsListGetTemplateTransformer
     - AssetsListGetTest
       - https://youtu.be/o0w-jYun6AU?t=1634 
 
