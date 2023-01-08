@@ -64,24 +64,39 @@
   - AssetsXxxEnum
 
 - ### otros
-  - Al mínimo error nos salimos del contexto en el que estemos
+  - Al mínimo error nos salimos del contexto en el que estemos.
+  ```php
+  private function isValidPayload(array $data): bool
+  {
+    if (!$data) {
+        return false;
+    }
+    if (!$userId = $data["user_id"]) {
+        return false;
+    }
+    if (!DB::getUserId($userId)) {
+        return false;
+    }
+    return true;
+  }
+  ```
   - No usamos literales planos o numericos en clausulas de guarda, recurrimos a enumerados o constantes.
   - Usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
-    ```php
-    $userName = "Eduardo";
-    $lastName = "Acevedo";
-    $welcomeMessage = "Hola {$userName} bienvenido";
-    $fullName = "{$userName} {$lastName}";
-    ``` 
+  ```php
+  $userName = "Eduardo";
+  $lastName = "Acevedo";
+  $welcomeMessage = "Hola {$userName} bienvenido";
+  $fullName = "{$userName} {$lastName}";
+  ``` 
   - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno.
   - Los métodos que tengan un tipo de retorno deben empezar por **get**
-    ```php
-    private function getUserRolesByUuid(string $uuid): array
+  ```php
+  private function getUserRolesByUuid(string $uuid): array
     
-    private function changeUserRoles(array $newRoles, int $userId): void
+  private function changeUserRoles(array $newRoles, int $userId): void
 
-    private function getFilesFromAzureByTypeOrFail(string $fileType): array
-    ```
+  private function getFilesFromAzureByTypeOrFail(string $fileType): array
+  ```
   - Los arrays los definimos en plural y con valor semántico. `foreach ($assets as $asset)`
 - las variables se definen lo más cerca de donde se utilizan
     
