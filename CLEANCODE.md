@@ -19,9 +19,8 @@
   - por defecto todos sus atributos private
   - todos sus métodos incialmente deben ser privados a excepción del constructor y el método `__invoke()`
   - en el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica para que ha sido creada la clase
-  
 
-- ### nomenclatura
+- ### Clases y su rol en una app DDD
   - Sufijo que identifica su rol
     - AssetsListGetController
       - https://youtu.be/o0w-jYun6AU?t=1465
