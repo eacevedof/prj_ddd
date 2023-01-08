@@ -1,0 +1,36 @@
+## Manifiesto cleancode
+
+- Los endpoints:
+  - deberían ser user friendly y aplicando el formato slug en las urls
+  - usamos guiones medios y siempre minúsculas
+    - https://undominio.com/categoria/otra-categoria/parametro-1 (ok)
+    - https://undominio.com/Categoria/otraCategoria/Parametro_1 (nok)
+
+### BE
+- ### encapsulación
+  - las clases deben ser de base final
+  - por defecto todos sus atributos private
+  - todos sus métodos incialmente deben ser privados a excepción del constructor y el método `__invoke()`
+  - en el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica para que ha sido creada la clase
+  - 
+
+- ### nomenclatura
+  - deben llevar el sufijo del tipo al que pertenecen 
+    - GettingAssetListController
+    - GettingAssetListHandler
+    - GettingAssetListCommand
+    - GettingAssetListEvent
+    - GettingAssetListService
+    - GettingAssetListDto
+    - GettingAssetListRequestValidator
+    - IGettingAssetRepository
+    - 
+    - AssetEntity
+
+- ### tipado
+  - usemos el tipado estricto siempre esto nos ahorrará conflictos de tipos
+  - los arrays en plural y con valor semántico
+  - las variables se definen lo más cerca de donde se utilizan
+    
+### Flujo
+- 
