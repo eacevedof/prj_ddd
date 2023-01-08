@@ -21,7 +21,7 @@
   - Sufijo que identifica su rol
     - GetAssetsListController
       - https://youtu.be/o0w-jYun6AU?t=1465
-    - GetAssetsListCommand (dto)
+    - GetAssetsListCommand (dto, data transfer object)
     - GetAssetsListCommandHandler
       - https://youtu.be/o0w-jYun6AU?t=1492
     - GetAssetsListRequestValidator
@@ -30,7 +30,7 @@
     - AssetListRepository
     - AssetEntity (extiende de AggregateRoot)
       - https://youtu.be/o0w-jYun6AU?t=1595
-    - GetAssetsListRecoveredEvent
+    - GetAssetsListDoneEvent
     - GetAssetsListDto
     - GetAssetsListTransformer
     - GetAssetsListTest
