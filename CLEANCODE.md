@@ -36,7 +36,7 @@
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
     - https://youtu.be/o0w-jYun6AU?t=1561 
   - AssetsListGetCommandValidator
-    - En el servicio se validan las reglas de negocio que pasar el **comando** antes de ser invocado en el caso de uso
+    - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetsListRepository
     - Implementa IDomainAssetsListRepository
   - AssetsListProvider
@@ -46,7 +46,7 @@
   - AssetEntity (extiende de AggregateRoot)
     - https://youtu.be/o0w-jYun6AU?t=1595
   - AssetsListGetFinishedEvent
-    - Los eventos siempre acompañados con una acción en pasado
+    - Los eventos siempre acompañados de una acción en pasado
   - AssetsListGetDto
     - Si el caso de uso se ha ejecutado correctamente y devuelve un resultado, este debería ser un DTO.
   - AssetsListGetApiTransformer
