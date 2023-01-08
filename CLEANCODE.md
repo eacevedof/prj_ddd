@@ -38,6 +38,7 @@
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetsListRepository
     - Implementa IDomainAssetsListRepository
+    - https://youtu.be/uP1CoHtjALg?t=498
   - AssetsListProvider
     - Implementa IDomainAssetsListRepository
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
