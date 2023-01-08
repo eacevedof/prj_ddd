@@ -44,6 +44,7 @@
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
     - También puede representar un servicio externo
   - AssetEntity (extiende de AggregateRoot)
+    - [Sobre named constructors](https://youtu.be/J0SFLG5B3wo?t=142)
     - https://youtu.be/o0w-jYun6AU?t=1595
   - AssetsListGetFinishedEvent
     - Los eventos siempre acompañados de una acción en pasado
