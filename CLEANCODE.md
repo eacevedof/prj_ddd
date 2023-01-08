@@ -16,9 +16,10 @@
 
 - ### Encapsulación
   - las clases deben ser **final** por defecto `final class AssetsListGetController`
-  - por defecto todos sus atributos y métodos **private**
-  - todos sus métodos incialmente deben ser privados a excepción del constructor y el método `__invoke()`
-  - en el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica 
+  - Intentamos evitar la herencia siempre que sea posible. En su lugar recurrimos a los Traits.
+  - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
+  - Como métodos públicos dispondremos el constructor y el método `__invoke()`
+  - En el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica 
   para que ha sido creada la clase. **AssetsListGet**
 
 - ### Clases y su responsabilidad en una aplicación
@@ -29,13 +30,14 @@
   - AssetsListGetCommand 
     - DTO (Data Transfer Object)
     - El payload mínimo de entrada que se extrae de la request y que se pasará al handler.
+    - Se validan los tipos primitivos
   - AssetsListGetCommandHandler
     - https://youtu.be/o0w-jYun6AU?t=1492
   - AssetsListGetService 
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
     - https://youtu.be/o0w-jYun6AU?t=1561 
-  - AssetsListGetRequestValidator
-    - 
+  - AssetsListGetCommandValidator
+    - Apila 
   - AssetsListRepository
     - Implementa IDomainAssetsListRepository
   - AssetsListProvider
@@ -44,20 +46,27 @@
     - También puede representar un servicio externo
   - AssetEntity (extiende de AggregateRoot)
     - https://youtu.be/o0w-jYun6AU?t=1595
-  - AssetsListGetDoneEvent
+  - AssetsListGetFinishedEvent
+    - Los eventos siempre acompañados con una acción en pasado
   - AssetsListGetDto
+    - Si el caso de uso se ha ejecutado correctamente y devuelve un resultado, este debería ser un DTO.
   - AssetsListGetApiTransformer
+    - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
   - AssetsListGetConsoleTransformer
   - AssetsListGetTemplateTransformer
   - AssetsListGetTest
+    - Prueba del caso de uso
     - https://youtu.be/o0w-jYun6AU?t=1634 
+  - AssetsListTrait
+  - IAssetsList
 
-- ### tipado
+- ### otros
+  - 
   - usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
   - 
   - usemos el tipado estricto siempre esto nos ahorrará conflictos de tipos
   - los arrays en plural y con valor semántico
-  - las variables se definen lo más cerca de donde se utilizan
+- las variables se definen lo más cerca de donde se utilizan
     
 ### Flujo
 - 
