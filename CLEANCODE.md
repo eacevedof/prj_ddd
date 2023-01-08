@@ -13,9 +13,8 @@
   - https://undominio.com/assets/get-list/parametro-1 (ok)
   - https://undominio.com/Assets/getList/Parametro_1 (nok)
 
-
 - ### Encapsulación
-  - las clases deben ser **final** por defecto `final class AssetsListGetController`
+  - Las clases deben ser **final** por defecto `final class AssetsListGetController, etc`
   - Intentamos evitar la herencia siempre que sea posible. En su lugar recurrimos a los Traits.
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
   - Como métodos públicos dispondremos el constructor y el método `__invoke()`
@@ -37,7 +36,7 @@
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
     - https://youtu.be/o0w-jYun6AU?t=1561 
   - AssetsListGetCommandValidator
-    - Apila 
+    - En el servicio se valida las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetsListRepository
     - Implementa IDomainAssetsListRepository
   - AssetsListProvider
@@ -60,6 +59,8 @@
     - https://youtu.be/o0w-jYun6AU?t=1634 
   - AssetsListTrait
   - IAssetsList
+  - AssetsException
+    - AssetsListGetException
 
 - ### otros
   - 
