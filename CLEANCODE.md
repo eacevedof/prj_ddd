@@ -76,7 +76,9 @@
   - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno.
   - Los métodos que tengan un tipo de retorno deben empezar por **get**
     ```php
+    private function getUserRolesByUuid(string $uuid): array
     
+    private function changeUserRoles(array $newRoles, int $userId): void
     ```
   - Los arrays los definimos en plural y con valor semántico. `foreach ($assets as $asset)`
 - las variables se definen lo más cerca de donde se utilizan
