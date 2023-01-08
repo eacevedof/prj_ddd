@@ -28,7 +28,7 @@
     - https://youtu.be/o0w-jYun6AU?t=1465
   - AssetsListGetCommand 
     - DTO (Data Transfer Object)
-    - El payload mínimo de entrada que se extrae de la request y que se pasará al handler.
+    - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
   - AssetsListGetCommandHandler
     - https://youtu.be/o0w-jYun6AU?t=1492
