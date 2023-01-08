@@ -1,6 +1,7 @@
 ## Manifiesto cleancode
 
 - [Repo ejemplo Codely](https://github.com/CodelyTV/php-ddd-example/tree/main/src/Mooc/Courses)
+  - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
 - Los endpoints:
   - deberían ser user friendly y aplicando el formato slug en las urls
   - usamos guiones medios y siempre minúsculas
@@ -21,14 +22,15 @@
     - GettingAssetListController
       - https://youtu.be/o0w-jYun6AU?t=1465
     - GettingAssetListCommand (dto)
-      - 
-    - GettingAssetListHandler
+    - GettingAssetListCommandHandler
+      - https://youtu.be/o0w-jYun6AU?t=1492
     - GettingAssetListRequestValidator
-    - GettingAssetListService
+    - GettingAssetListService (application service)
+      - https://youtu.be/o0w-jYun6AU?t=1561 
     - GettingAssetListRecoveredEvent
     - GettingAssetListDto
     - IGettingAssetRepository
-    - 
+    - GettingAssetListTransformer
     - AssetEntity
 
 - ### tipado
