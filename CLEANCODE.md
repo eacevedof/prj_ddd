@@ -87,6 +87,11 @@
   $lastName = "Acevedo";
   $welcomeMessage = "Hola {$userName} bienvenido";
   $fullName = "{$userName} {$lastName}";
+  
+  $data = [
+    "$userName 1" => "xxx",
+    "$userName 2" => "yyy",
+  ];
   ``` 
   - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno.
   - Los métodos que tengan un tipo de retorno deben empezar por **get**
