@@ -22,33 +22,33 @@
   para que ha sido creada la clase. **AssetsListGet**
 
 - ### Clases y su responsabilidad en una aplicación
-  - Sufijo que identifica su rol
-    - AssetsListGetController
-      - Gestiona el punto de entrada, request y su resultado de post procesado response
-      - https://youtu.be/o0w-jYun6AU?t=1465
-    - AssetsListGetCommand 
-      - DTO (Data Transfer Object)
-      - data transfer object
-    - AssetsListGetCommandHandler
-      - https://youtu.be/o0w-jYun6AU?t=1492
-    - AssetsListGetService (application service, encapsula el caso de uso que se pretende resolver)
-      - https://youtu.be/o0w-jYun6AU?t=1561 
-    - AssetsListGetRequestValidator
-    - AssetsListRepository
-      - Implementa IDomainAssetsListRepository
-    - AssetsListProvider
-      - Implementa IDomainAssetsListRepository
-      - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
-      - También puede representar un servicio externo
-    - AssetEntity (extiende de AggregateRoot)
-      - https://youtu.be/o0w-jYun6AU?t=1595
-    - AssetsListGetDoneEvent
-    - AssetsListGetDto
-    - AssetsListGetApiTransformer
-    - AssetsListGetConsoleTransformer
-    - AssetsListGetTemplateTransformer
-    - AssetsListGetTest
-      - https://youtu.be/o0w-jYun6AU?t=1634 
+  - Sufijo que identifica la responsabilidad
+  - AssetsListGetController
+    - Gestiona el punto de entrada, request y su resultado de post procesado response
+    - https://youtu.be/o0w-jYun6AU?t=1465
+  - AssetsListGetCommand 
+    - DTO (Data Transfer Object)
+    - data transfer object
+  - AssetsListGetCommandHandler
+    - https://youtu.be/o0w-jYun6AU?t=1492
+  - AssetsListGetService (application service, encapsula el caso de uso que se pretende resolver)
+    - https://youtu.be/o0w-jYun6AU?t=1561 
+  - AssetsListGetRequestValidator
+  - AssetsListRepository
+    - Implementa IDomainAssetsListRepository
+  - AssetsListProvider
+    - Implementa IDomainAssetsListRepository
+    - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
+    - También puede representar un servicio externo
+  - AssetEntity (extiende de AggregateRoot)
+    - https://youtu.be/o0w-jYun6AU?t=1595
+  - AssetsListGetDoneEvent
+  - AssetsListGetDto
+  - AssetsListGetApiTransformer
+  - AssetsListGetConsoleTransformer
+  - AssetsListGetTemplateTransformer
+  - AssetsListGetTest
+    - https://youtu.be/o0w-jYun6AU?t=1634 
 
 - ### tipado
   - usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
