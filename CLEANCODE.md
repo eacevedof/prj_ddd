@@ -10,8 +10,8 @@
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
 - usamos guiones medios y siempre minúsculas
-  - https://undominio.com/categoria/otra-categoria/parametro-1 (ok)
-  - https://undominio.com/Categoria/otraCategoria/Parametro_1 (nok)
+  - https://undominio.com/assets/get-list/parametro-1 (ok)
+  - https://undominio.com/Assets/getList/Parametro_1 (nok)
 
 
 - ### Encapsulación
@@ -28,12 +28,14 @@
     - https://youtu.be/o0w-jYun6AU?t=1465
   - AssetsListGetCommand 
     - DTO (Data Transfer Object)
-    - data transfer object
+    - El payload mínimo de entrada que se extrae de la request y que se pasará al handler.
   - AssetsListGetCommandHandler
     - https://youtu.be/o0w-jYun6AU?t=1492
-  - AssetsListGetService (application service, encapsula el caso de uso que se pretende resolver)
+  - AssetsListGetService 
+    - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
     - https://youtu.be/o0w-jYun6AU?t=1561 
   - AssetsListGetRequestValidator
+    - 
   - AssetsListRepository
     - Implementa IDomainAssetsListRepository
   - AssetsListProvider
