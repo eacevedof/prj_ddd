@@ -28,9 +28,9 @@
     - AssetsListGetCommand (dto, data transfer object)
     - AssetsListGetCommandHandler
       - https://youtu.be/o0w-jYun6AU?t=1492
-    - AssetsListGetRequestValidator
     - AssetsListGetService (application service)
       - https://youtu.be/o0w-jYun6AU?t=1561 
+    - AssetsListGetRequestValidator
     - AssetListRepository
     - AssetEntity (extiende de AggregateRoot)
       - https://youtu.be/o0w-jYun6AU?t=1595
