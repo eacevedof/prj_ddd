@@ -36,7 +36,7 @@
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
     - https://youtu.be/o0w-jYun6AU?t=1561 
   - AssetsListGetCommandValidator
-    - En el servicio se valida las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
+    - En el servicio se validan las reglas de negocio que pasar el **comando** antes de ser invocado en el caso de uso
   - AssetsListRepository
     - Implementa IDomainAssetsListRepository
   - AssetsListProvider
@@ -61,10 +61,12 @@
   - IAssetsList
   - AssetsException
     - AssetsListGetException
+  - AssetsXxxEnum
 
 - ### otros
-  - 
-  - usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
+  - Al mínimo error nos salimos del contexto en el que estemos
+  - No usamos literales planos en clausulas de guarda, recurrimos a enumerados o constantes.
+  - Usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
   - 
   - usemos el tipado estricto siempre esto nos ahorrará conflictos de tipos
   - los arrays en plural y con valor semántico
