@@ -19,21 +19,21 @@
 
 - ### nomenclatura
   - Sufijo que identifica su rol
-    - GetAssetListController
+    - GetAssetsListController
       - https://youtu.be/o0w-jYun6AU?t=1465
-    - GetAssetListCommand (dto)
-    - GetAssetListCommandHandler
+    - GetAssetsListCommand (dto)
+    - GetAssetsListCommandHandler
       - https://youtu.be/o0w-jYun6AU?t=1492
-    - GetAssetListRequestValidator
-    - GetAssetListService (application service)
+    - GetAssetsListRequestValidator
+    - GetAssetsListService (application service)
       - https://youtu.be/o0w-jYun6AU?t=1561 
     - AssetListRepository
     - AssetEntity (extiende de AggregateRoot)
       - https://youtu.be/o0w-jYun6AU?t=1595
-    - GetAssetListRecoveredEvent
-    - GetAssetListDto
-    - GetAssetListTransformer
-    - GetAssetListTest
+    - GetAssetsListRecoveredEvent
+    - GetAssetsListDto
+    - GetAssetsListTransformer
+    - GetAssetsListTest
       - https://youtu.be/o0w-jYun6AU?t=1634 
 
 - ### tipado
