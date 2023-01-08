@@ -4,7 +4,6 @@
   - [Repo esqueleto en DDD Codely](https://github.com/CodelyTV/php-ddd-example/tree/main/src/Mooc/Courses)
   - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
 
-
 ### BE
 
 - ### Endpoints:
