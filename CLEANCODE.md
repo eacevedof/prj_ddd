@@ -55,7 +55,7 @@
     - AssetsListGetTemplateTransformer
     - AssetsListErrorTransformer
   - AssetsListGetTest
-    - Prueba del caso de uso
+    - Prueba unitaria del caso de uso
     - https://youtu.be/o0w-jYun6AU?t=1634 
   - AssetsListTrait
   - IAssetsList
