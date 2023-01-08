@@ -79,6 +79,8 @@
     private function getUserRolesByUuid(string $uuid): array
     
     private function changeUserRoles(array $newRoles, int $userId): void
+
+    private function getFilesFromAzureByTypeOrFail(string $fileType): array
     ```
   - Los arrays los definimos en plural y con valor semántico. `foreach ($assets as $asset)`
 - las variables se definen lo más cerca de donde se utilizan
