@@ -51,9 +51,9 @@
     - Si el caso de uso se ha ejecutado correctamente y devuelve un resultado, este debería ser un DTO.
   - AssetsListGetApiTransformer
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
-  - AssetsListGetConsoleTransformer
-  - AssetsListGetTemplateTransformer
-  - AssetsListErrorTransformer
+    - AssetsListGetConsoleTransformer
+    - AssetsListGetTemplateTransformer
+    - AssetsListErrorTransformer
   - AssetsListGetTest
     - Prueba del caso de uso
     - https://youtu.be/o0w-jYun6AU?t=1634 
