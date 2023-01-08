@@ -1,16 +1,20 @@
 ## Manifiesto cleancode
 
-- [Repo ejemplo Codely](https://github.com/CodelyTV/php-ddd-example/tree/main/src/Mooc/Courses)
+- [Video Codely - De código acoplado al framework hasta microservicios pasando por DDD](https://youtu.be/o0w-jYun6AU)
+  - [Repo esqueleto en DDD Codely](https://github.com/CodelyTV/php-ddd-example/tree/main/src/Mooc/Courses)
   - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
-- Los endpoints:
-  - deberían ser user friendly y aplicando el formato slug en las urls
-  - usamos guiones medios y siempre minúsculas
-    - https://undominio.com/categoria/otra-categoria/parametro-1 (ok)
-    - https://undominio.com/Categoria/otraCategoria/Parametro_1 (nok)
+
 
 ### BE
 
-- ### encapsulación
+- ### Endpoints:
+- deberían ser user friendly y aplicando el formato slug en las urls
+- usamos guiones medios y siempre minúsculas
+  - https://undominio.com/categoria/otra-categoria/parametro-1 (ok)
+  - https://undominio.com/Categoria/otraCategoria/Parametro_1 (nok)
+
+
+- ### Encapsulación
   - las clases deben ser de base final
   - por defecto todos sus atributos private
   - todos sus métodos incialmente deben ser privados a excepción del constructor y el método `__invoke()`
