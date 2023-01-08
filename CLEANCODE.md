@@ -33,9 +33,12 @@
     - AssetsListGetService (application service, encapsula el caso de uso que se pretende resolver)
       - https://youtu.be/o0w-jYun6AU?t=1561 
     - AssetsListGetRequestValidator
-    - AssetListRepository
-    - AssetListProvider
-      - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc. 
+    - AssetsListRepository
+      - Implementa IDomainAssetsListRepository
+    - AssetsListProvider
+      - Implementa IDomainAssetsListRepository
+      - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
+      - También puede representar un servicio externo
     - AssetEntity (extiende de AggregateRoot)
       - https://youtu.be/o0w-jYun6AU?t=1595
     - AssetsListGetDoneEvent
