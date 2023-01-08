@@ -15,25 +15,30 @@
   - por defecto todos sus atributos private
   - todos sus métodos incialmente deben ser privados a excepción del constructor y el método `__invoke()`
   - en el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica para que ha sido creada la clase
-  - 
+  
 
 - ### nomenclatura
-  - deben llevar el sufijo del tipo al que pertenecen 
-    - GettingAssetListController
+  - Sufijo que identifica su rol
+    - GetAssetListController
       - https://youtu.be/o0w-jYun6AU?t=1465
-    - GettingAssetListCommand (dto)
-    - GettingAssetListCommandHandler
+    - GetAssetListCommand (dto)
+    - GetAssetListCommandHandler
       - https://youtu.be/o0w-jYun6AU?t=1492
-    - GettingAssetListRequestValidator
-    - GettingAssetListService (application service)
+    - GetAssetListRequestValidator
+    - GetAssetListService (application service)
       - https://youtu.be/o0w-jYun6AU?t=1561 
-    - GettingAssetListRecoveredEvent
-    - GettingAssetListDto
-    - IGettingAssetRepository
-    - GettingAssetListTransformer
-    - AssetEntity
+    - AssetListRepository
+    - AssetEntity (extiende de AggregateRoot)
+      - https://youtu.be/o0w-jYun6AU?t=1595
+    - GetAssetListRecoveredEvent
+    - GetAssetListDto
+    - GetAssetListTransformer
+    - GetAssetListTest
+      - https://youtu.be/o0w-jYun6AU?t=1634 
 
 - ### tipado
+  - usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
+  - 
   - usemos el tipado estricto siempre esto nos ahorrará conflictos de tipos
   - los arrays en plural y con valor semántico
   - las variables se definen lo más cerca de donde se utilizan
