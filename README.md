@@ -9,6 +9,7 @@
   - [shared kernel](https://youtu.be/dH5aSQLXtKg?t=973)
   - [carpeta test](https://youtu.be/UFnABp2s8Y0?t=717)
   - [porqué interfaces?](https://youtu.be/uP1CoHtjALg?t=761)
+  - [Mock repository](https://www.youtube.com/watch?v=uP1CoHtjALg)
 
 ## [ddd_last-wishes-carlos-buenosvinos](https://github.com/eacevedof/prj_ddd/tree/master/ddd_last-wishes-carlos-buenosvinos)
   - App en php
