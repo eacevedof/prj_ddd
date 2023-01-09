@@ -44,9 +44,11 @@
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
     - También puede representar un servicio externo
   - AssetEntity (extiende de AggregateRoot)
+    - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity](https://youtu.be/J0SFLG5B3wo?t=142)
     - https://youtu.be/o0w-jYun6AU?t=1595
   - AssetsListGetFinishedEvent
+    - DTO
     - Los eventos siempre acompañados de una acción en pasado
   - AssetsListGetDto
     - Si el caso de uso se ha ejecutado correctamente y devuelve un resultado, este debería ser un DTO.
@@ -62,6 +64,7 @@
   - IAssetsList
   - AssetsException
     - AssetsListGetException
+    - AssetsListFilterException
     - [Name constructor en excepciones](https://youtu.be/J0SFLG5B3wo?t=439)
   - AssetsXxxEnum
 
