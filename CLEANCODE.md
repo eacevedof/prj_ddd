@@ -24,53 +24,53 @@
 
 - ### Clases y su responsabilidad en una aplicación
   - Sufijo que identifica la responsabilidad
-  - AssetsListGetController
+  - AssetsListGet**Controller**
     - Gestiona el punto de entrada, request y su resultado de post procesado response
     - https://youtu.be/o0w-jYun6AU?t=1465
-  - AssetsListGetCommand 
+  - AssetsListGet**Command** 
     - DTO (Data Transfer Object)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
-  - AssetsListGetCommandHandler
+  - AssetsListGet**CommandHandler**
     - https://youtu.be/o0w-jYun6AU?t=1492
-  - AssetsListGetService 
+  - AssetsListGet**Service**
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
     - https://youtu.be/o0w-jYun6AU?t=1561 
-  - AssetsListGetCommandValidator
+  - AssetsListGet**CommandValidator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
-  - AssetsListRepository
+  - AssetsList**Repository**
     - Implementa IDomainAssetsListRepository
     - https://youtu.be/uP1CoHtjALg?t=498
-  - AssetsListProvider
+  - AssetsList**Provider**
     - Implementa IDomainAssetsListRepository
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
     - También puede representar un servicio externo
-  - AssetEntity (extiende de AggregateRoot)
+  - Asset**Entity** (extiende de AggregateRoot)
     - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity](https://youtu.be/J0SFLG5B3wo?t=142)
     - https://youtu.be/o0w-jYun6AU?t=1595
-  - AssetsListGetFinishedEvent
+  - AssetsListGetFinished**Event**
     - DTO
     - Los eventos siempre acompañados de una acción en pasado
-  - AssetsListGetDto
+  - AssetsListGet**Dto**
     - Si el caso de uso se ha ejecutado correctamente y devuelve un resultado, este debería ser un DTO.
-  - AssetsListGetApiTransformer
+  - AssetsListGetApi**Transformer**
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
     - AssetsListGetConsoleTransformer
     - AssetsListGetTemplateTransformer
     - AssetsListErrorTransformer
-  - AssetsListGetTest
+  - AssetsListGet**Test**
     - Prueba unitaria del caso de uso
     - https://youtu.be/o0w-jYun6AU?t=1634 
-  - AssetsListTrait
-  - IAssetsList
-  - AssetsException
+  - AssetsList**Trait**
+  - **I**AssetsList
+  - Assets**Exception**
     - AssetsListGetException
     - AssetsListFilterException
     - [Name constructor en excepciones](https://youtu.be/J0SFLG5B3wo?t=439)
-  - AssetsXxxEnum
+  - AssetsXxx**Enum**
 
-- ### otros
+- ### Otros
   - Al mínimo error nos salimos del contexto en el que estemos.
   ```php
   private function isValidPayload(array $data): bool
