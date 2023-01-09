@@ -5,7 +5,7 @@
   - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
 
 ### BE
-- Caso de uso: Obtener un listado de Assets
+- Ejemplo: Caso de uso: Obtener un listado de Assets
 
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
