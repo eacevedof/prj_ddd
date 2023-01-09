@@ -5,6 +5,7 @@
   - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
 
 ### BE
+- Caso de uso: Obtener un listado de Assets
 
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
@@ -19,6 +20,7 @@
   - Como métodos públicos dispondremos el constructor y el método `__invoke()`
   - En el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica 
   para que ha sido creada la clase. **AssetsListGet**
+  - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw)
 
 - ### Clases y su responsabilidad en una aplicación
   - Sufijo que identifica la responsabilidad
