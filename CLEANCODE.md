@@ -117,3 +117,4 @@
   foreach ($roles as $role)
   ```
 - las variables se definen lo más cerca de donde se utilizan
+- Usamos el operador ternario `$x==$y?"""`
