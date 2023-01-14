@@ -63,7 +63,7 @@
     - Prueba unitaria del caso de uso
     - https://youtu.be/o0w-jYun6AU?t=1634 
   - AssetsList**Trait**
-  - **I**AssetsList
+  - **AssetsListInterface**
   - Assets**Exception**
     - AssetsListGetException
     - AssetsListFilterException
@@ -89,7 +89,8 @@
     return true;
   }
   ```
-  - No usamos literales planos o numericos en clausulas de guarda, recurrimos a enumerados o constantes.
+  - No usamos literales planos o numericos (magic numbers) en clausulas de guarda, recurrimos a enumerados o constantes con valor semántico.
+  - https://youtu.be/jNSQuqMW8sM?t=2799
   - Usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
   ```php
   $userName = "Eduardo";
@@ -116,5 +117,9 @@
   foreach ($assets as $asset)
   foreach ($roles as $role)
   ```
+- [Calidad del código](https://youtu.be/jNSQuqMW8sM?t=2799)
 - las variables se definen lo más cerca de donde se utilizan
 - Usamos el operador ternario `$x==$y?"hola":"chao"`
+- Como múcho nuestros métodos deberían admitir 2 argumentos en caso de ser más habrá que empaquetarlos en una clase
+- No usamos `select * from tabla` siempre que sea posible solamente trabajamos con indices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
+- No integramos código muerto
