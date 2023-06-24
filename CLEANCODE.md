@@ -189,18 +189,25 @@ final class AssetFullUpdateController
   ```php
   private function isValidAssetHead(array $assetHead): bool
   {
+    /**
+    * early return
+    */
     if (!$assetHead) {
         return false;
     }
     if (!$userId = $assetHead["user_id"]) {
         return false;
     }
+    /*
+    * el acceso es el punto más profundo e intentamos no ejecutarlo
+    */
     if (!DB::getUserId($userId)) {
         return false;
     }
     return true;
   }
   ```
+  - Los nombres de las variables deben estar en formato **$camelCase** no **$snake_case** 
   - No usamos literales planos o numericos (magic numbers) en clausulas de guarda, recurrimos a enumerados o constantes con valor semántico.
   - https://youtu.be/jNSQuqMW8sM?t=2799
   - Usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
@@ -210,7 +217,7 @@ final class AssetFullUpdateController
   $welcomeMessage = "Hola {$userName} bienvenido";
   $fullName = "{$userName} {$lastName}";
   
-  $data = [
+  $names = [
     "$userName 1" => "xxx",
     "$userName 2" => "yyy",
   ];
@@ -231,6 +238,30 @@ final class AssetFullUpdateController
   ```
 - [Calidad del código](https://youtu.be/jNSQuqMW8sM?t=2799)
 - las variables se definen lo más cerca de donde se utilizan
+```php
+private function addUsersWithVisibility(array $users): void
+{
+    /*
+     * Esta defininición no está en el punto más cercando a su utilización.
+     * Estamos ocupando memoria que es probable que no se use
+     * */
+    $usersWithVisibility = [];
+    if (count($users) > 100)
+        return;
+    
+    if (count($users) < 25)
+        return;
+    
+    // este es el punto más cercano a su uso
+    $usersWithVisibility = [];
+    foreach ($users as $user) {
+        if ($user->profile === self::SUPERVISOR && $user->visibility)
+            $usersWithVisibility[] = $user;
+    }
+    
+    $this->withVisibility = array_map(fn()=> , $usersWithVisibility);
+}
+```
 - Usamos el operador ternario `$x==$y?"hola":"chao"`
 - Como múcho nuestros métodos deberían admitir 2 argumentos en caso de ser más habrá que empaquetarlos en una clase
 - No usamos `select * from tabla` siempre que sea posible solamente trabajamos con indices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
