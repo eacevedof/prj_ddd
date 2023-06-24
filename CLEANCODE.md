@@ -112,8 +112,8 @@ final class AssetFullUpdateController
   - https://undominio.com/Asset/Update/Parametro_1 (nok)
 
 - ### Encapsulación
-  - Las clases deben ser **final** por defecto `final class AssetsListGetController, etc`
-  - Intentamos evitar la herencia siempre que sea posible. En su lugar recurrimos a los Traits.
+  - Las clases deben ser **final** por defecto `final class AssetFullUpdateController, etc`
+  - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Traits o Composición.
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
   - Como métodos públicos dispondremos el constructor y el método `__invoke()`
   - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se lanza la única lógica 
