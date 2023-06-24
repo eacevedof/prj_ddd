@@ -24,6 +24,8 @@ public function __invoke(Request $request): JsonResponse
 /**
  * Este servicio se encarga de cargar el idioma a partir de la configuración seleccionada por
  * el usuario.
+ * 
+ * Esto hace que los mensajes que se configuren en la "Response" vayan traducidos.
  */
     $this->languageManagerService->loadLocaleByHeaderLanguage();
     try {
@@ -52,7 +54,9 @@ public function __invoke(Request $request): JsonResponse
         $this->assetFilesTagChangeValidator = null;
 
 /**
- * El servicio 
+ * El servicio que resuelve el caso de uso recibe como única entrada un DTO de solo lectura.
+ * Esto nos asegura que no sera cambiado a lo largo de todas las capas por las que tenga que pasar
+ * dentro de la acción. 
  */
         $this->assetFullUpdateService->__invoke($assetFullDto);
 
