@@ -139,13 +139,16 @@ final class AssetFullUpdateController
   - AssetFullUpdate**Controller**
     - Gestiona el punto de entrada, request y su resultado de post procesado response
     - [https://youtu.be/o0w-jYun6AU?t=1465](https://youtu.be/o0w-jYun6AU?t=1465)
-  - AssetFullUpdate**Command** 
+  - AssetFullUpdate**Command** AssetFullUpdate**Dto**
     - DTO (Data Transfer Object)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
-  - AssetFullUpdate**CommandHandler** AssetFullUpdate**Dto**
+  - AssetFullUpdate**CommandHandler** 
+    - Es una capa de indirección más. Recupera el Command (DTO) anterior y lo descompone en sus primitivos para pasarlo al servicio 
+    - Esta capa tiene sentido si trabajamos con un EventHandler por ejemplo.
     - [https://youtu.be/o0w-jYun6AU?t=1492](https://youtu.be/o0w-jYun6AU?t=1492)
   - AssetFullUpdate**Service**
+    - [Porqué se separa el servicio del command handler?](https://youtu.be/-Cim-IgBoLA?t=2098) 
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
     - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561) 
