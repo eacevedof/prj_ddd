@@ -166,7 +166,8 @@ final class AssetFullUpdateController
     - DTO
     - Los eventos siempre acompañados de una acción en pasado
   - AssetFullUpdate**Dto**
-    - Si el caso de uso se ha ejecutado correctamente y devuelve un resultado, este debería ser un DTO.
+    - Lo ideal es que cada vez que se ejecute el caso de uso este, si tiene que devolver algo deberia ser un objeto DTO.
+    - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
   - AssetFullUpdateApi**Transformer**
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
     - AssetFullUpdateConsoleTransformer
