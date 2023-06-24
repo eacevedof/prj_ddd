@@ -114,7 +114,7 @@ final class AssetFullUpdateController
 - ### Encapsulación
   - Las clases deben ser **final** por defecto `final class AssetFullUpdateController, etc`
   - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Composición (usando el inyector de dependencias).
-    - De forma resumida el fín es facilitar la aplicación de tests 
+    - De forma resumida el fín es facilitar la aplicación de tests ya que de base tenemos visibilidad de los componentes que entran en juego pudiendo ser moqueados.
     - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc)
     - 
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
