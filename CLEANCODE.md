@@ -129,7 +129,7 @@ final class AssetFullUpdateController
   - Como métodos públicos dispondremos el constructor y el método `__invoke()` (la carga semántica de la accíón recae en el nombre de la clase).
     - Este nombre ya indica de partida que nuestra clase tendrá una única responsabilidad. La **S** de SOLID.
   - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se ejecuta la única lógica 
-  para la que ha sido creada la clase. **AssetFullUpdateService**
+  para la que ha sido creada la clase. **AssetFullUpdate**
   - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw)
 
 - ### Clases y su responsabilidad en una aplicación
