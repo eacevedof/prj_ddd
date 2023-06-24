@@ -5,7 +5,9 @@
   - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
 
 ### BE
-- Tablas y Campos siempre en Inglés.
+
+#### Esquema de datos
+- Los nombres de las tablas y campos siempre se deben definir en Inglés.
 - Los nombres de las tablas debemos considerarlos como un conjunto de datos desacoplable del core e identificarlas con un prefijo. Teniendo en perspectiva llevar esa funcionalidad a un micro-servicio.
 - Un ejemplo son las tablas **assets_** y/o **bulk_**
 - Los nombres se definen en plural (por seguir la convención del esquema heredado CEH)
@@ -15,7 +17,6 @@
 - Los campos **booleanos** se definen en formato pregunta: has_visibility, is_visible, is_blocked, etc.
 - Creamos tablas 1:1 para aquellos casos donde tengamos que almacenar estructuras JSON. En la principal definimos todos los campos menos los tipo JSON
 
-- Trabajamos con early error y con early return.
 - Ejemplo:
 ```php
 final class AssetFullUpdateController
@@ -104,7 +105,7 @@ final class AssetFullUpdateController
     }
 ```
 
-- Ejemplo: Caso de uso: Obtener un listado de Assets
+- Ejemplo: Caso de uso: Actualizar un Asset
 
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
@@ -170,6 +171,7 @@ final class AssetFullUpdateController
   - AssetsXxx**Enum**
 
 - ### Otros
+  - Trabajamos con early error y con early return.
   - Al mínimo error nos salimos del contexto en el que estemos.
   - Evitamos comentarios. Para esto usamos variables metodos y clases con alto valor semantico
   - Código muerto. El código que queda obsoleto se elimina. La mejor linea de código es la que no se escribe y por ende no hay que mantener.
