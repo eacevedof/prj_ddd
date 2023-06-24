@@ -252,10 +252,10 @@ private function addUsersWithVisibility(array $users): void
      * Estamos ocupando memoria que es probable que no se use
      * */
     $usersWithVisibility = [];
-    if (count($users) > 100)
+    if (count($users) > self::MAX_NUMBER_OF_USERS)
         return;
     
-    if (count($users) < 25)
+    if (count($users) < self::MIN_NUMBER_OF_USERS)
         return;
     
     // este es el punto más cercano a su uso
