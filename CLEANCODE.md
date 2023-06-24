@@ -120,7 +120,7 @@ final class AssetFullUpdateController
   - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Composición (usando el inyector de dependencias).
     - De forma resumida el fín es facilitar la aplicación de tests ya que de base tenemos visibilidad de los componentes que entran en juego pudiendo ser moqueados.
     - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc)
-    - [Relaciones entre objetos](https://youtu.be/jNSQuqMW8sM)
+    - [Relaciones entre objetos](https://youtu.be/jNSQuqMW8sM?t=263)
 
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
   - Como métodos públicos dispondremos el constructor y el método `__invoke()` (la carga semántica de la accíón recae en el nombre de la clase).
