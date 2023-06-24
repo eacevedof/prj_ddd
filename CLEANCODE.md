@@ -119,30 +119,30 @@ final class AssetFullUpdateController
   - Las clases deben ser **final** por defecto `final class AssetFullUpdateController, etc`
   - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Composición (usando el inyector de dependencias).
     - De forma resumida el fín es facilitar la aplicación de tests ya que de base tenemos visibilidad de los componentes que entran en juego pudiendo ser moqueados.
-    - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc){:target="_blank"}
-    - [Relaciones entre objetos](https://youtu.be/jNSQuqMW8sM){:target="_blank"}
+    - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc)
+    - [Relaciones entre objetos](https://youtu.be/jNSQuqMW8sM)
 
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
   - Como métodos públicos dispondremos el constructor y el método `__invoke()` (la carga semántica de la accíón recae en el nombre de la clase).
     - Este nombre ya indica de partida que nuestra clase tendrá una única responsabilidad. La **S** de SOLID.
   - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se lanza la única lógica 
   para que ha sido creada la clase. **AssetsListGet**
-  - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw){:target="_blank" rel="noopener"}
+  - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw)
 
 - ### Clases y su responsabilidad en una aplicación
   - Sufijo que identifica la responsabilidad
   - AssetsListGet**Controller**
     - Gestiona el punto de entrada, request y su resultado de post procesado response
-    - [](https://youtu.be/o0w-jYun6AU?t=1465){:target="_blank" rel="noopener"}
+    - [https://youtu.be/o0w-jYun6AU?t=1465](https://youtu.be/o0w-jYun6AU?t=1465)
   - AssetsListGet**Command** 
     - DTO (Data Transfer Object)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
   - AssetsListGet**CommandHandler**
-    - https://youtu.be/o0w-jYun6AU?t=1492
+    - [https://youtu.be/o0w-jYun6AU?t=1492](https://youtu.be/o0w-jYun6AU?t=1492)
   - AssetsListGet**Service**
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
-    - https://youtu.be/o0w-jYun6AU?t=1561 
+    - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561) 
   - AssetsListGet**CommandValidator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetsList**Repository**
