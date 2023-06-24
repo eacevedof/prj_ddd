@@ -17,7 +17,7 @@
 - Los campos **booleanos** se definen en formato pregunta: has_visibility, is_visible, is_blocked, etc.
 - Creamos tablas 1:1 para aquellos casos donde tengamos que almacenar estructuras JSON. En la principal definimos todos los campos menos los tipo JSON
 
-- Ejemplo:
+- Ejemplo: Caso de uso: Actualizar un Asset
 ```php
 final class AssetFullUpdateController
 {
@@ -104,8 +104,6 @@ final class AssetFullUpdateController
         }
     }
 ```
-
-- Ejemplo: Caso de uso: Actualizar un Asset
 
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
