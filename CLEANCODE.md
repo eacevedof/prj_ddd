@@ -143,13 +143,13 @@ final class AssetFullUpdateController
     - DTO (Data Transfer Object)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
-  - AssetFullUpdate**CommandHandler**
+  - AssetFullUpdate**CommandHandler** AssetFullUpdate**Dto**
     - [https://youtu.be/o0w-jYun6AU?t=1492](https://youtu.be/o0w-jYun6AU?t=1492)
   - AssetFullUpdate**Service**
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
     - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561) 
-  - AssetFullUpdate**CommandValidator**
+  - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetsList**Repository**
     - Implementa IDomainAssetsListRepository
