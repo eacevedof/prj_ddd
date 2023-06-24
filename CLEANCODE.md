@@ -157,7 +157,6 @@ final class AssetFullUpdateController
   - AssetFull**Provider**
     - Implementa AssetFullRepositoryInterface
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
-    - También puede representar un servicio externo
   - Asset**Entity** (extiende de AggregateRoot)
     - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity](https://youtu.be/J0SFLG5B3wo?t=142)
