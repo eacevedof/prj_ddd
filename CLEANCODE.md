@@ -226,7 +226,7 @@ final class AssetFullUpdateController
     "$userName 2" => "yyy",
   ];
   ``` 
-  - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno.
+  - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno (no usamos **mixed**).
   - Los métodos que tengan un tipo de retorno deben empezar por **get** y si es un booleano la firma debe ser en forma de pregunta: **is, has, does, do, etc**
   ```php
   private function getUserRolesByUuid(string $uuid): array;
