@@ -136,20 +136,20 @@ final class AssetFullUpdateController
 
 - ### Clases y su responsabilidad en una aplicación
   - Sufijo que identifica la responsabilidad
-  - AssetsListGet**Controller**
+  - AssetFullUpdate**Controller**
     - Gestiona el punto de entrada, request y su resultado de post procesado response
     - [https://youtu.be/o0w-jYun6AU?t=1465](https://youtu.be/o0w-jYun6AU?t=1465)
-  - AssetsListGet**Command** 
+  - AssetFullUpdate**Command** 
     - DTO (Data Transfer Object)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
-  - AssetsListGet**CommandHandler**
+  - AssetFullUpdate**CommandHandler**
     - [https://youtu.be/o0w-jYun6AU?t=1492](https://youtu.be/o0w-jYun6AU?t=1492)
-  - AssetsListGet**Service**
-    - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, obtener una lista de assets.
+  - AssetFullUpdate**Service**
+    - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
     - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561) 
-  - AssetsListGet**CommandValidator**
+  - AssetFullUpdate**CommandValidator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetsList**Repository**
     - Implementa IDomainAssetsListRepository
@@ -162,23 +162,23 @@ final class AssetFullUpdateController
     - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity](https://youtu.be/J0SFLG5B3wo?t=142)
     - https://youtu.be/o0w-jYun6AU?t=1595
-  - AssetsListGetFinished**Event**
+  - AssetFullUpdateFinished**Event**
     - DTO
     - Los eventos siempre acompañados de una acción en pasado
-  - AssetsListGet**Dto**
+  - AssetFullUpdate**Dto**
     - Si el caso de uso se ha ejecutado correctamente y devuelve un resultado, este debería ser un DTO.
-  - AssetsListGetApi**Transformer**
+  - AssetFullUpdateApi**Transformer**
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
-    - AssetsListGetConsoleTransformer
-    - AssetsListGetTemplateTransformer
+    - AssetFullUpdateConsoleTransformer
+    - AssetFullUpdateTemplateTransformer
     - AssetsListErrorTransformer
-  - AssetsListGet**Test**
+  - AssetFullUpdate**Test**
     - Prueba unitaria del caso de uso
     - https://youtu.be/o0w-jYun6AU?t=1634 
   - AssetsList**Trait**
   - **AssetsListInterface**
   - Assets**Exception**
-    - AssetsListGetException
+    - AssetFullUpdateException
     - AssetsListFilterException
     - [Name constructor en excepciones](https://youtu.be/J0SFLG5B3wo?t=439)
   - AssetsXxx**Enum**
