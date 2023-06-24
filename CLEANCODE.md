@@ -55,7 +55,7 @@ final class AssetFullUpdateController
         $this->languageManagerService->loadLocaleByHeaderLanguage();
         try {
     /**
-     * No usamos librerias de terceros para mapear un DTO a partir de la request.
+     * No usamos librerías de terceros para mapear un DTO a partir de la request.
      * Nuestros DTOs suelen cumplir un patrón básico:  app/DTO/AbstractDto.php que cumple
      * con los datos mínimos de logs de auditoría.
      * 
@@ -128,8 +128,8 @@ final class AssetFullUpdateController
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
   - Como métodos públicos dispondremos el constructor y el método `__invoke()` (la carga semántica de la accíón recae en el nombre de la clase).
     - Este nombre ya indica de partida que nuestra clase tendrá una única responsabilidad. La **S** de SOLID.
-  - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se lanza la única lógica 
-  para que ha sido creada la clase. **AssetsListGet**
+  - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se ejecuta la única lógica 
+  para la que ha sido creada la clase. **AssetFullUpdateService**
   - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw)
 
 - ### Clases y su responsabilidad en una aplicación
