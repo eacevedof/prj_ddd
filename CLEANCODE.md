@@ -224,13 +224,15 @@ final class AssetFullUpdateController
   ];
   ``` 
   - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno.
-  - Los métodos que tengan un tipo de retorno deben empezar por **get**
+  - Los métodos que tengan un tipo de retorno deben empezar por **get** y si es un booleano la firma debe ser en forma de pregunta: **is, has, does, do, etc**
   ```php
   private function getUserRolesByUuid(string $uuid): array
     
   private function changeUserRoles(array $newRoles, int $userId): void
 
   private function getFilesFromAzureByTypeOrFail(string $fileType): array
+  
+  private function doesUserHavePermissionByUserId(int $userId): bool
   ```
   - Los arrays los definimos en plural y con valor semántico. 
   ```php
