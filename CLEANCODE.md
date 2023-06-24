@@ -45,7 +45,7 @@ final class AssetFullUpdateController
     {
     /**
      * Aplicamos el principio "Tell, Don't Ask". Es decir ordenamos a los servicios que ejecuten su única responsabilidad
-     * no usamos if por fuera. 
+     * no usamos if por fuera. https://martinfowler.com/bliki/TellDontAsk.html
      * 
      * Este servicio se encarga de cargar el idioma a partir de la configuración seleccionada por
      * el usuario.
