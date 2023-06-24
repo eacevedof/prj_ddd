@@ -5,13 +5,15 @@
   - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
 
 ### BE
-- Tablas
+- Tablas y Campos siempre en Inglés.
 - Los nombres de las tablas debemos de pensarlas como un conjunto de datos desacoplable del core e identificarlas con un prefijo.
 - Un ejemplo son las tablas **assets_** y/o **bulk_**
 - Los nombres se definen en plural (por seguir la convención del esquema heredado CEH)
 - Las claves foraneas siguen el siguiente formato: **<nombre-de-tabla-destino>_id** CEH un ejemplo es **assets_id**
 - Si hay que incluir una tabla de idiomas esta debe terminar con el sufijo de la que se traduce **<nombre-de-tabla-principal>_tr**
-  -  
+  - Es importante que en estas solo existan los campos traducibles ninguna información más.
+- Los campos **booleanos** se definen en formato pregunta: has_visibility, is_visible, is_blocked, etc.
+- 
 
 - Trabajamos con early error y con early return.
 - Ejemplo:
