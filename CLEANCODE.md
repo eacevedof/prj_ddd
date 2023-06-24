@@ -6,14 +6,14 @@
 
 ### BE
 - Tablas y Campos siempre en Inglés.
-- Los nombres de las tablas debemos considerarlos como un conjunto de datos desacoplable del core e identificarlas con un prefijo.
+- Los nombres de las tablas debemos considerarlos como un conjunto de datos desacoplable del core e identificarlas con un prefijo. Teniendo en perspectiva llevar esa funcionalidad a un micro-servicio.
 - Un ejemplo son las tablas **assets_** y/o **bulk_**
 - Los nombres se definen en plural (por seguir la convención del esquema heredado CEH)
-- Las claves foraneas siguen el siguiente formato: **<nombre-de-tabla-destino>_id** CEH un ejemplo es **assets_id**
+- Las claves foraneas siguen el siguiente formato: **<nombre-de-tabla-destino>_id** (según CEH) un ejemplo es **assets_id**
 - Si hay que incluir una tabla de idiomas esta debe terminar con el sufijo de la que se traduce **<nombre-de-tabla-principal>_tr**
   - Es importante que en estas solo existan los campos traducibles ninguna información más.
 - Los campos **booleanos** se definen en formato pregunta: has_visibility, is_visible, is_blocked, etc.
-- 
+- Creamos tablas 1:1 para aquellos casos donde tengamos que almacenar estructuras JSON. En la principal definimos todos los campos menos los tipo JSON
 
 - Trabajamos con early error y con early return.
 - Ejemplo:
