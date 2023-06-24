@@ -9,6 +9,8 @@
 #### Esquema de datos
 - Los nombres de las tablas y campos siempre se deben definir en Inglés.
 - Los nombres de las tablas debemos considerarlos como un conjunto de datos desacoplable del core e identificarlas con un prefijo. Teniendo en perspectiva llevar esa funcionalidad a un micro-servicio.
+- Evitamos el fuerte acomplamiento con el **framework** a este lo vemos como una pieza reemplazable.
+  - [PHP-Frameworks-Bench](https://github.com/myaaghubi/PHP-Frameworks-Bench)
 - Un ejemplo son las tablas **assets_** y/o **bulk_**
 - Los nombres se definen en plural (por seguir la convención del esquema heredado CEH)
 - Las claves foraneas siguen el siguiente formato: **<nombre-de-tabla-destino>_id** (según CEH) un ejemplo es **assets_id**
