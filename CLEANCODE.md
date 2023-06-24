@@ -44,6 +44,9 @@ final class AssetFullUpdateController
     public function __invoke(Request $request): JsonResponse
     {
     /**
+     * Aplicamos el principio "Tell, Don't Ask". Es decir ordenamos a los servicios que ejecuten su única responsabilidad
+     * no usamos if por fuera. 
+     * 
      * Este servicio se encarga de cargar el idioma a partir de la configuración seleccionada por
      * el usuario.
      * 
@@ -184,12 +187,12 @@ final class AssetFullUpdateController
   - Evitamos comentarios. Para esto usamos variables metodos y clases con alto valor semantico
   - Código muerto. El código que queda obsoleto se elimina. La mejor linea de código es la que no se escribe y por ende no hay que mantener.
   ```php
-  private function isValidPayload(array $data): bool
+  private function isValidAssetHead(array $assetHead): bool
   {
-    if (!$data) {
+    if (!$assetHead) {
         return false;
     }
-    if (!$userId = $data["user_id"]) {
+    if (!$userId = $assetHead["user_id"]) {
         return false;
     }
     if (!DB::getUserId($userId)) {
