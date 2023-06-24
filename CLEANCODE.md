@@ -24,6 +24,10 @@ final class AssetFullUpdateController
   
     public function __construct(
         private readonly LanguageManagerService $languageManagerService,
+/**
+ * una instancia inyectada puede ser nula si esta es muy pesada (tiene atributos que ocupan espacio considerable en memoria)
+ * el objetivo es liberar ese espacio seteando a null la variable. 
+*/        
         private ?AssetFullUpdateDtoFromRequestBuilderService $assetFullUpdateDtoFromRequestBuilderService,
         private ?AssetFullUpdateValidator $assetFullUpdateValidator,
         private ?AssetFilesTagChangeValidator $assetFilesTagChangeValidator,
