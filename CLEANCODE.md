@@ -123,7 +123,7 @@ final class AssetFullUpdateController
 - ### Encapsulación
   - Las clases deben ser **final** por defecto `final class AssetFullUpdateController, etc`
   - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Composición (usando el inyector de dependencias).
-    - De forma resumida el fín es facilitar la aplicación de tests ya que de base tenemos visibilidad de los componentes que entran en juego pudiendo ser moqueados.
+    - De forma resumida el fín es facilitar la implementación de tests unitarios. La composición nos da visibilidad de los componentes que intervienen y permiten ser "moqueados".
     - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc)
     - [Relaciones entre objetos - UML](https://youtu.be/jNSQuqMW8sM?t=263)
 
@@ -279,5 +279,5 @@ private function areAgesInRangeOrFail(int $age1, int $age2, int $age3): bool;
 private function areAgesInRangeOrFail(array $ages): bool;
 ```
 - No usamos `select * from tabla` siempre que sea posible solamente trabajamos con índices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
-- 
+- Evitamos usar las relaciones 
 - No integramos código muerto
