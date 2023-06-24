@@ -18,60 +18,86 @@
 - Trabajamos con early error y con early return.
 - Ejemplo:
 ```php
-//código de un controlador
-public function __invoke(Request $request): JsonResponse
+final class AssetFullUpdateController
 {
-/**
- * Este servicio se encarga de cargar el idioma a partir de la configuración seleccionada por
- * el usuario.
- * 
- * Esto hace que los mensajes que se configuren en la "Response" vayan traducidos.
- */
-    $this->languageManagerService->loadLocaleByHeaderLanguage();
-    try {
-/**
- * No usamos librerias de terceros para mapear un DTO a partir de la request.
- * Nuestros DTOs suelen cumplir un patrón básico:  app/DTO/AbstractDto.php que cumple
- * con los datos mínimos de logs de auditoría.
- * 
-*/    
-        $assetFullDto = $this->assetFullUpdateDtoFromRequestBuilderService->__invoke($request);
-        $this->assetFullUpdateDtoFromRequestBuilderService = null;
-
-/**
- * Aqui ejecutamos "early error". Se valida el payload de entrada y se lanzan excepciones Ad-Hoc 
- * para aquellos casos en los que el DTO no cumple con las Reglas de negocio.
- * 
-*/     
-        $this->assetFullUpdateValidator->__invoke($assetFullDto);
-        $this->assetFullUpdateValidator = null;
-
-/**
- * Una clase no debería superar las 400 lineas. Si es así es necesario partirla. 
- * En este caso el validador original de actualización se ha dividido en dos.
- */
-        $this->assetFilesTagChangeValidator->__invoke($assetFullDto);
-        $this->assetFilesTagChangeValidator = null;
-
-/**
- * El servicio que resuelve el caso de uso recibe como única entrada un DTO de solo lectura.
- * Esto nos asegura que no sera cambiado a lo largo de todas las capas por las que tenga que pasar
- * dentro de la acción. 
- */
-        $this->assetFullUpdateService->__invoke($assetFullDto);
-
-        return $this->send200Response([
-            "message" => trans("asset-full-tr.success.asset-successfully-saved")
-        ]);
+    use HttpResponse, SentryTrait;
+  
+    public function __construct(
+        private readonly LanguageManagerService $languageManagerService,
+        private ?AssetFullUpdateDtoFromRequestBuilderService $assetFullUpdateDtoFromRequestBuilderService,
+        private ?AssetFullUpdateValidator $assetFullUpdateValidator,
+        private ?AssetFilesTagChangeValidator $assetFilesTagChangeValidator,
+        private readonly AssetFullUpdateService $assetFullUpdateService
+    )
+    {
     }
-    catch (AbstractAssetFullException | AssetsFilesTagException $ex) {
-        return $this->sendResponseByCode($ex->getCode(), ["message" => $ex->getMessage()]);
+
+    public function __invoke(Request $request): JsonResponse
+    {
+    /**
+     * Este servicio se encarga de cargar el idioma a partir de la configuración seleccionada por
+     * el usuario.
+     * 
+     * Esto hace que los mensajes que se configuren en la "Response" vayan traducidos.
+     */
+        $this->languageManagerService->loadLocaleByHeaderLanguage();
+        try {
+    /**
+     * No usamos librerias de terceros para mapear un DTO a partir de la request.
+     * Nuestros DTOs suelen cumplir un patrón básico:  app/DTO/AbstractDto.php que cumple
+     * con los datos mínimos de logs de auditoría.
+     * 
+    */    
+            $assetFullDto = $this->assetFullUpdateDtoFromRequestBuilderService->__invoke($request);
+            $this->assetFullUpdateDtoFromRequestBuilderService = null;
+    /**
+     * Aqui ejecutamos "early error". Se valida el payload de entrada y se lanzan excepciones Ad-Hoc 
+     * para aquellos casos en los que el DTO no cumple con las Reglas de negocio.
+     * 
+     * Es importante definir correctamente los códigos de error en las excepciones 
+    */     
+            $this->assetFullUpdateValidator->__invoke($assetFullDto);
+            $this->assetFullUpdateValidator = null;
+    
+    /**
+     * Una clase no debería superar las 400 lineas. Si es así es necesario partirla. 
+     * En este caso el validador original de actualización se ha dividido en dos.
+     */
+            $this->assetFilesTagChangeValidator->__invoke($assetFullDto);
+            $this->assetFilesTagChangeValidator = null;
+    
+    /**
+     * El servicio que resuelve el caso de uso recibe como única entrada un DTO de solo lectura.
+     * Esto nos asegura que no sera cambiado a lo largo de todas las capas por las que tenga que pasar
+     * dentro de la acción. 
+     * 
+     * Debemos 
+     */
+            $this->assetFullUpdateService->__invoke($assetFullDto);
+    /**
+    * si todo ha ido bien se envía un 200 y el nodo message, en caso de tener que enviar más datos
+    * se apilan en el array por debajo de "message" 
+    */
+            return $this->send200Response([
+                "message" => trans("asset-full-tr.success.asset-successfully-saved")
+            ]);
+        }
+        catch (AbstractAssetFullException | AssetsFilesTagException $ex) {
+    /**
+     * En esta sección se captura todas aquellas excepciones que están relacionadas con el caso de uso a cubrir
+     * Las de los validadores.
+     */    
+            return $this->sendResponseByCode($ex->getCode(), ["message" => $ex->getMessage()]);
+        }
+        catch (Exception $ex) {
+    /**
+     * En esta sección se captura todas aquellas excepciones que se escapan a las reglas de negocio estas se envían
+     * a Sentry con el fin de tener visibilidad en los entornos
+     */    
+            $this->sendExceptionToSentry($ex);
+            return $this->send500Response(["message" => trans("exceptions.unexpected_500")]);
+        }
     }
-    catch (Exception $ex) {
-        $this->sendExceptionToSentry($ex);
-        return $this->send500Response(["message" => trans("exceptions.unexpected_500")]);
-    }
-}
 ```
 
 - Ejemplo: Caso de uso: Obtener un listado de Assets

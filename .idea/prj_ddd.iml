@@ -4,8 +4,15 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/slim_online-store/src" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/slim_online-store/tests" isTestSource="true" packagePrefix="Tests\" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/blog-publish-mvc-v1/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_cqrs-php-example-codely/applications/api/src" isTestSource="false" packagePrefix="CodelyTv\Api\" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_cqrs-php-example-codely/applications/codely/src" isTestSource="false" packagePrefix="CodelyTv\" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_cqrs-php-example-codely/features/bootstrap" isTestSource="true" packagePrefix="CodelyTv\Applications\Bootstrap\" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_cqrs-php-example-codely/src" isTestSource="false" packagePrefix="CodelyTv\" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_cqrs-php-example-codely/tests" isTestSource="true" packagePrefix="CodelyTv\Test\" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_last-wishes-carlos-buenosvinos/src/Lw" isTestSource="false" packagePrefix="Lw\" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_last-wishes-carlos-buenosvinos/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ddd_last-wishes-carlos-buenosvinos/tests/Lw" isTestSource="true" packagePrefix="Lw\" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
