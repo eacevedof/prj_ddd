@@ -283,6 +283,9 @@ private function areAgesInRangeOrFail(array $ages): bool;
   - [Desintoxicándonos de Eloquent](https://www.youtube.com/watch?v=EInyOtPra44) 
   - Esto procura evitar los *leaks de infraestructura*
   ```php
-  
+  //Aqui nuestra entidad TacticalRequestEntity estaria conociendo de infraestructura para obtener una tarea que al mismo tiempo repite 
+  //el proceso para obtener el tipo.  Una entidad no tiene esta responsabilidad quien tiene acceso a los datos es el repositorio que es una abstracción
+  //de la capa de Infra.
+  $tacticalRequest->task->type->name
   ```
 - No integramos código muerto
