@@ -5,6 +5,55 @@
   - [Parte del código del video](https://github.com/eacevedof/prj_phptests/tree/master/examples/eventsourcing)
 
 ### BE
+- Tablas
+- Los nombres de las tablas debemos de pensarlas como un conjunto de datos desacoplable del core e identificarlas con un prefijo.
+- Un ejemplo son las tablas **assets_** y/o **bulk_**
+- Los nombres se definen en plural (por seguir la convención del esquema heredado CEH)
+- Las claves foraneas siguen el siguiente formato: **<nombre-de-tabla-destino>_id** CEH un ejemplo es **assets_id**
+- Si hay que incluir una tabla de idiomas esta debe terminar con el sufijo de la que se traduce **<nombre-de-tabla-principal>_tr**
+  -  
+
+- Trabajamos con early error y con early return.
+- Ejemplo:
+```php
+//código de un controlador
+public function __invoke(Request $request): JsonResponse
+{
+    $this->languageManagerService->loadLocaleByHeaderLanguage();
+    try {
+/**
+ * No usamos librerias de terceros para mapear un DTO con la request.
+ * Nuestros DTOs suelen cumplir un patrón básico:  app/DTO/AbstractDto.php
+*/    
+        $assetFullDto = $this->assetFullUpdateDtoFromRequestBuilderService->__invoke($request);
+        $this->assetFullUpdateDtoFromRequestBuilderService = null;
+
+/**
+ * aqui hacemos early error. Se valida el payload de entrada y 
+*/
+        
+        $this->assetFullUpdateValidator->__invoke($assetFullDto);
+        $this->assetFullUpdateValidator = null;
+
+        $this->assetFilesTagChangeValidator->__invoke($assetFullDto);
+        $this->assetFilesTagChangeValidator = null;
+
+        $this->assetFullUpdateService->__invoke($assetFullDto);
+
+        return $this->send200Response([
+            "message" => trans("asset-full-tr.success.asset-successfully-saved")
+        ]);
+    }
+    catch (AbstractAssetFullException | AssetsFilesTagException $ex) {
+        return $this->sendResponseByCode($ex->getCode(), ["message" => $ex->getMessage()]);
+    }
+    catch (Exception $ex) {
+        $this->sendExceptionToSentry($ex);
+        return $this->send500Response(["message" => trans("exceptions.unexpected_500")]);
+    }
+}
+```
+
 - Ejemplo: Caso de uso: Obtener un listado de Assets
 
 - ### Endpoints:
@@ -18,7 +67,7 @@
   - Intentamos evitar la herencia siempre que sea posible. En su lugar recurrimos a los Traits.
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
   - Como métodos públicos dispondremos el constructor y el método `__invoke()`
-  - En el constructor se hace la inyección de dependencias y con invoke se lanza la única lógica 
+  - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se lanza la única lógica 
   para que ha sido creada la clase. **AssetsListGet**
   - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw)
 
