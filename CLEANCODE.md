@@ -154,6 +154,7 @@ final class AssetFullUpdateController
   - AssetFull**Repository**
     - Implementa AssetFullRepositoryInterface
     - [https://youtu.be/uP1CoHtjALg?t=498](https://youtu.be/uP1CoHtjALg?t=498)
+    - No usamos métodos estáticos ya que estos esconden logica que a posteriori dificulta la testabilidad
   - AssetFull**Provider**
     - Implementa AssetFullRepositoryInterface
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
@@ -280,6 +281,7 @@ private function areAgesInRangeOrFail(array $ages): bool;
 - No usamos `select * from tabla` siempre que sea posible solamente trabajamos con índices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
 - Evitamos usar las relaciones del ORM (métodos **with**)
   - [Desintoxicándonos de Eloquent](https://www.youtube.com/watch?v=EInyOtPra44) 
+  - Esto procura evitar los *leaks de infraestructura*
   ```php
   
   ```
