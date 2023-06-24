@@ -120,10 +120,11 @@ final class AssetFullUpdateController
   - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Composición (usando el inyector de dependencias).
     - De forma resumida el fín es facilitar la aplicación de tests ya que de base tenemos visibilidad de los componentes que entran en juego pudiendo ser moqueados.
     - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc)
+    - [Relaciones entre objetos](https://youtu.be/jNSQuqMW8sM)
 
   - Por defecto todos sus atributos y métodos son **private**. Mantener un método público tiene un costo mayor.
   - Como métodos públicos dispondremos el constructor y el método `__invoke()` (la carga semántica de la accíón recae en el nombre de la clase).
-    - Este nombre ya indica de partida que nuestra clase tendrá una única responsabilidad.
+    - Este nombre ya indica de partida que nuestra clase tendrá una única responsabilidad. La **S** de SOLID.
   - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se lanza la única lógica 
   para que ha sido creada la clase. **AssetsListGet**
   - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw)
