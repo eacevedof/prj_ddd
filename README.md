@@ -1,6 +1,8 @@
 # prj_ddd
-- Entendiendo la arquitectura Domain Driven Design
 
+## [Monolito a Microservicios por Carlos Buenosvinos](https://www.youtube.com/watch?v=qwPFZ9v91kw)
+
+- Entendiendo la arquitectura Domain Driven Design
 ## [Video - Introducción a Domain Driven Design (DDD)](https://www.youtube.com/watch?v=g9hTQQHPj2I)
   - Explicación muy clara de todos los componentes de DDD
 
