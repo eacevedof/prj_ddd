@@ -72,7 +72,7 @@ final class AssetFullUpdateController
             $this->assetFullUpdateValidator = null;
     
     /**
-     * Una clase no debería superar las 400 lineas. Si es así es necesario partirla. 
+     * Una clase no debería superar las 400 líneas. Si es así es necesario partirla. 
      * En este caso el validador original de actualización se ha dividido en dos.
      */
             $this->assetFilesTagChangeValidator->__invoke($assetFullDto);
