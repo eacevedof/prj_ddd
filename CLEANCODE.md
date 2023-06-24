@@ -24,19 +24,26 @@ public function __invoke(Request $request): JsonResponse
     $this->languageManagerService->loadLocaleByHeaderLanguage();
     try {
 /**
- * No usamos librerias de terceros para mapear un DTO con la request.
- * Nuestros DTOs suelen cumplir un patrón básico:  app/DTO/AbstractDto.php
+ * No usamos librerias de terceros para mapear un DTO a partir de la request.
+ * Nuestros DTOs suelen cumplir un patrón básico:  app/DTO/AbstractDto.php que cumple
+ * con los datos mínimos de logs de auditoría.
+ * 
 */    
         $assetFullDto = $this->assetFullUpdateDtoFromRequestBuilderService->__invoke($request);
         $this->assetFullUpdateDtoFromRequestBuilderService = null;
 
 /**
- * aqui hacemos early error. Se valida el payload de entrada y 
-*/
-        
+ * Aqui ejecutamos "early error". Se valida el payload de entrada y se lanzan excepciones Ad-Hoc 
+ * para aquellos casos en los que el DTO no cumple con las Reglas de negocio.
+ * 
+*/     
         $this->assetFullUpdateValidator->__invoke($assetFullDto);
         $this->assetFullUpdateValidator = null;
 
+/**
+ * Una clase no debería superar las 400 lineas. Si es así es necesario partirla. 
+ * Luego
+ */
         $this->assetFilesTagChangeValidator->__invoke($assetFullDto);
         $this->assetFilesTagChangeValidator = null;
 
