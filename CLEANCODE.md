@@ -151,11 +151,11 @@ final class AssetFullUpdateController
     - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561) 
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
-  - AssetsList**Repository**
-    - Implementa IDomainAssetsListRepository
+  - AssetFull**Repository**
+    - Implementa AssetFullRepositoryInterface
     - [https://youtu.be/uP1CoHtjALg?t=498](https://youtu.be/uP1CoHtjALg?t=498)
-  - AssetsList**Provider**
-    - Implementa IDomainAssetsListRepository
+  - AssetFull**Provider**
+    - Implementa AssetFullRepositoryInterface
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
     - También puede representar un servicio externo
   - Asset**Entity** (extiende de AggregateRoot)
@@ -172,15 +172,15 @@ final class AssetFullUpdateController
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
     - AssetFullUpdateConsoleTransformer
     - AssetFullUpdateTemplateTransformer
-    - AssetsListErrorTransformer
+    - AssetFullErrorTransformer
   - AssetFullUpdate**Test**
     - Prueba unitaria del caso de uso
     - https://youtu.be/o0w-jYun6AU?t=1634 
-  - AssetsList**Trait**
-  - **AssetsListInterface**
+  - AssetFull**Trait**
+  - **AssetFullInterface**
   - AbstractAssetFull**Exception**
     - AssetFullUpdateException
-    - AssetsListFilterException
+    - AssetFullFilterException
     - [Name constructor en excepciones](https://youtu.be/J0SFLG5B3wo?t=439)
   - AssetsXxx**Enum**
 
