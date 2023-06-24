@@ -278,5 +278,6 @@ private function areAgesInRangeOrFail(int $age1, int $age2, int $age3): bool;
 private function areAgesInRangeOrFail(array $ages): bool;
 ```
 - No usamos `select * from tabla` siempre que sea posible solamente trabajamos con índices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
-- Evitamos usar las relaciones 
+- Evitamos usar las relaciones del ORM (métodos **with**)
+  - [Desintoxicándonos de Eloquent](https://www.youtube.com/watch?v=EInyOtPra44) 
 - No integramos código muerto
