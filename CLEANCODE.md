@@ -21,6 +21,10 @@
 //código de un controlador
 public function __invoke(Request $request): JsonResponse
 {
+/**
+ * Este servicio se encarga de cargar el idioma a partir de la configuración seleccionada por
+ * el usuario.
+ */
     $this->languageManagerService->loadLocaleByHeaderLanguage();
     try {
 /**
@@ -42,11 +46,14 @@ public function __invoke(Request $request): JsonResponse
 
 /**
  * Una clase no debería superar las 400 lineas. Si es así es necesario partirla. 
- * Luego
+ * En este caso el validador original de actualización se ha dividido en dos.
  */
         $this->assetFilesTagChangeValidator->__invoke($assetFullDto);
         $this->assetFilesTagChangeValidator = null;
 
+/**
+ * El servicio 
+ */
         $this->assetFullUpdateService->__invoke($assetFullDto);
 
         return $this->send200Response([
