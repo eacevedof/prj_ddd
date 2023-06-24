@@ -181,8 +181,8 @@ final class AssetFullUpdateController
   - AssetsXxx**Enum**
 
 - ### Otros
-  - Aplicamos "Tell, Don't Ask"
-  - Trabajamos con early error y con early return.
+  - Aplicamos el principio  **"Tell, Don't Ask"**
+  - Trabajamos con **early error** y con **early return**.
   - Al mínimo error nos salimos del contexto en el que estemos.
   - Evitamos comentarios. Para esto usamos variables metodos y clases con alto valor semantico
   - Código muerto. El código que queda obsoleto se elimina. La mejor linea de código es la que no se escribe y por ende no hay que mantener.
