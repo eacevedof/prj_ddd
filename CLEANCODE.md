@@ -6,7 +6,7 @@
 
 ### BE
 - Tablas y Campos siempre en Inglés.
-- Los nombres de las tablas debemos de pensarlas como un conjunto de datos desacoplable del core e identificarlas con un prefijo.
+- Los nombres de las tablas debemos considerarlos como un conjunto de datos desacoplable del core e identificarlas con un prefijo.
 - Un ejemplo son las tablas **assets_** y/o **bulk_**
 - Los nombres se definen en plural (por seguir la convención del esquema heredado CEH)
 - Las claves foraneas siguen el siguiente formato: **<nombre-de-tabla-destino>_id** CEH un ejemplo es **assets_id**
