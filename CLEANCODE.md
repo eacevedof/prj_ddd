@@ -266,7 +266,14 @@ private function addUsersWithVisibility(array $users): void
 }
 ```
 - Usamos el operador ternario `$x==$y?"hola":"chao"`
-- Como mucho nuestros métodos deberían admitir 2 argumentos en caso de ser más habrá que empaquetarlos en una clase (DTO por ejemplo)
-- No usamos `select * from tabla` siempre que sea posible solamente trabajamos con indices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
+- Como mucho nuestros métodos deberían admitir **2 argumentos** en caso de ser más habrá que empaquetarlos en una clase (DTO por ejemplo)
+```php
+//nok
+private function areAgesInRangeOrFail(int $age1, int $age2, int $age3): bool;
+
+//ok
+private function areAgesInRangeOrFail(array $ages): bool;
+```
+- No usamos `select * from tabla` siempre que sea posible solamente trabajamos con índices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
 - 
 - No integramos código muerto
