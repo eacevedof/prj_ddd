@@ -199,7 +199,8 @@ final class AssetFullUpdateController
         return false;
     }
     /*
-    * el acceso es el punto más profundo e intentamos no ejecutarlo
+    * el acceso a datos es el cuello de botella de toda app con persistencia.
+    * procuramos asegurarnos de las condiciones ideales para ejecutar acciones de lectura y/o escritura.
     */
     if (!DB::getUserId($userId)) {
         return false;
@@ -263,6 +264,6 @@ private function addUsersWithVisibility(array $users): void
 }
 ```
 - Usamos el operador ternario `$x==$y?"hola":"chao"`
-- Como múcho nuestros métodos deberían admitir 2 argumentos en caso de ser más habrá que empaquetarlos en una clase
+- Como múcho nuestros métodos deberían admitir 2 argumentos en caso de ser más habrá que empaquetarlos en una clase (DTO por ejemplo)
 - No usamos `select * from tabla` siempre que sea posible solamente trabajamos con indices. Los datos completos solo se recuperan en el punto más cercando a la respuesta al cliente.
 - No integramos código muerto
