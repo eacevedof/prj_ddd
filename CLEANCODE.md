@@ -80,7 +80,7 @@ final class AssetFullUpdateController
     
     /**
      * El servicio que resuelve el caso de uso recibe como única entrada un DTO de solo lectura.
-     * Esto nos asegura que no sera cambiado a lo largo de todas las capas por las que tenga que pasar
+     * Esto nos asegura que no será cambiado a lo largo de todas las capas por las que tenga que pasar
      * dentro de la acción. 
      * 
      * Debemos 
