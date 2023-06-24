@@ -21,6 +21,10 @@
 ```php
 final class AssetFullUpdateController
 {
+/**
+ * HttpResponse nos facilita el formateo de respuestas JsonResponse
+ * SentryTrait tiene métodos de envío al servicio de Sentry
+ */
     use HttpResponse, SentryTrait;
   
     public function __construct(
