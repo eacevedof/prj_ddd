@@ -108,8 +108,8 @@ final class AssetFullUpdateController
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
 - usamos guiones medios y siempre minúsculas
-  - https://undominio.com/assets/get-list/parametro-1 (ok)
-  - https://undominio.com/Assets/getList/Parametro_1 (nok)
+  - https://undominio.com/asset/update/parametro-1 (ok)
+  - https://undominio.com/Asset/Update/Parametro_1 (nok)
 
 - ### Encapsulación
   - Las clases deben ser **final** por defecto `final class AssetsListGetController, etc`
