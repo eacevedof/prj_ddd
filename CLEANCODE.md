@@ -178,7 +178,7 @@ final class AssetFullUpdateController
     - https://youtu.be/o0w-jYun6AU?t=1634 
   - AssetsList**Trait**
   - **AssetsListInterface**
-  - Assets**Exception**
+  - AbstractAssetFull**Exception**
     - AssetFullUpdateException
     - AssetsListFilterException
     - [Name constructor en excepciones](https://youtu.be/J0SFLG5B3wo?t=439)
