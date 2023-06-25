@@ -201,7 +201,7 @@ final class AssetFullUpdateController
   - Trabajamos con [**early error** y con **early return** - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2821).
     - Al mínimo error nos salimos del contexto en el que estamos.
     - Evitamos el `if () elseif (){} else {}` y el patrón **hadouken** [Programar sin else - Codely](https://youtu.be/FVxS28oyLuw)
-  - Evitamos comentarios. Para esto usamos variables métodos y clases con alto valor semántico
+  - Evitamos comentarios. Debe ser el último recurso. Para esto usamos variables métodos, constantes y clases con alto valor semántico
   ```php
   private function isValidAssetHead(array $assetHead): bool
   {
