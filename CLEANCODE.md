@@ -18,7 +18,7 @@
 - Creamos tablas 1:1 para aquellos casos donde tengamos que almacenar estructuras JSON. En la principal definimos todos los campos menos los tipo JSON
 
 #### Esqueleto base de un controlador. Ejemplo: Caso de uso: Actualizar un Asset
-- Todas las clases son [final](https://youtu.be/Gl9td0zGLhw?t=2278) y readonly por defecto
+- Todas las clases son [final - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2278) y readonly por defecto
 ```php
 final class AssetFullUpdateController
 {
@@ -186,7 +186,7 @@ final class AssetFullUpdateController
     - AssetFullErrorTransformer
   - AssetFullUpdate**Test**
     - Prueba unitaria del caso de uso
-    - [de test de caso de uso en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1634)
+    - [Ejemplo de test de caso de uso en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1634)
   - AssetFull**Trait**
   - **AssetFullInterface**
   - AbstractAssetFull**Exception**
