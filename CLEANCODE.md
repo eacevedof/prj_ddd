@@ -246,7 +246,13 @@ final class AssetFullUpdateController
   ```
   - Evitamos métodos porlimorficos y más si son públicos.
   ```php
-  public function 
+  //nok
+  $actionType = "create"; //update
+  public function myMethodChangeActionByType(int $userId, string $actionType): void;
+  
+  //ok
+  public function myMethodDoActionOnCreate(int $userid): void;
+  public function myMethodDoActionOnUpdate(int $userid): void;
   ```
   - Los arrays los definimos en plural y con valor semántico. 
   ```php
