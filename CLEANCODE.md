@@ -288,7 +288,7 @@ private function addUsersWithVisibility(array $users): void
 }
 ```
 - Usamos el operador ternario `$x==$y?"hola":"chao"`
-- Como mucho nuestros métodos deberían admitir **2 argumentos** en caso de ser más habrá que empaquetarlos en una clase (DTO por ejemplo)
+- Como mucho nuestros métodos deberían admitir **2 argumentos** en caso de ser más habrá que empaquetarlos en una clase (DTO o [ValueObject](https://youtu.be/Gl9td0zGLhw?t=2153))
 ```php
 //nok
 private function areAgesInRangeOrFail(int $age1, int $age2, int $age3): bool;
