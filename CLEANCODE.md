@@ -151,7 +151,7 @@ final class AssetFullUpdateController
   - AssetFullUpdate**CommandHandler** 
     - Es una capa de indirección más. Recupera el Command (DTO) anterior y lo descompone en sus primitivos para pasarlo al servicio 
     - Esta capa tiene sentido si trabajamos con un EventHandler por ejemplo.
-    - [https://youtu.be/o0w-jYun6AU?t=1492](https://youtu.be/o0w-jYun6AU?t=1492)
+    - [Ejemplo de CommandHandler en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1492)
   - AssetFullUpdate**Service**
     - [Porqué se separa el servicio del command handler?](https://youtu.be/-Cim-IgBoLA?t=2098) 
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
