@@ -153,11 +153,13 @@ final class AssetFullUpdateController
     - Es una capa de indirección más. Recupera el Command (DTO) anterior y lo descompone en sus primitivos para pasarlo al servicio 
     - Esta capa tiene sentido si trabajamos con un EventHandler por ejemplo.
     - [Ejemplo de CommandHandler en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1492)
+
   - AssetFullUpdate**Service**
     - [Porqué se separa el servicio del command handler? - Codely](https://youtu.be/-Cim-IgBoLA?t=2098) 
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
     - [Ejemplo de un Application Service en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1561)
+
   - AssetFullUpdate**Dto**
     - Lo ideal es que cada vez que se ejecute el caso de uso, este, si tiene que devolver algo deberia ser un [objeto DTO - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2459).
     - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
@@ -165,41 +167,52 @@ final class AssetFullUpdateController
     - El **DTO** de entrada suele tener un naming constructor **fromPrimitives(array $primitives)** puede que si el caso de uso no es complejo nos baste con este método.
     - Si la construcción implica hacer una lógica compleja debemos recurrir a un **builder** 
       - Ejemplo **/BulkTacticalRequestCreateAssetFullDtoBuilderService.php** 
-  - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
+
+  - AssetFullUpdate**Validator** AssetFullUpdate**CommandValidator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
     - Een caso de no cumplir se lanza una excepción tipada
     - Se validan los tipos primitivos
     - Se hacen comprobaciones contra la bd
+
   - AssetFull**Repository**
     - Implementa [AssetFullRepositoryInterface](https://youtu.be/EInyOtPra44?t=250)
     - [Cuando usar Interfaces - Codely](https://youtu.be/uP1CoHtjALg?t=498)
     - No usamos métodos estáticos, ya que estos esconden lógica que a posteriori dificultará la **testabilidad**
     - Lo mismo ocurre con los **helpers** esas funciones que es una estratégia más propia de la progamación imperativa.
+
   - AssetFull**Provider**
     - Implementa AssetFullRepositoryInterface
     - Es equivalente a un repositorio, pero con la salvedad que el origen de los datos que abstrae es un **sistema externo**, un micro-servicio, una api de terceros, etc.
+
   - Asset**Entity** (extiende de [AggregateRoot - Codely](https://youtu.be/EInyOtPra44?t=173))
     - Sobre el [AggregateRoot - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2695) 
     - El nombre siempre en singular, ya que una entidad es la representación única de un modelo de datos. 
     - [Sobre named constructors en lugar de usar new AssetEntity - Codely](https://youtu.be/J0SFLG5B3wo?t=142)
     - [Ejemplo de la entidad Aggregate en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1595)
+
   - AssetFullUpdated**Event**
     - Es un DTO inmutable.
     - El nombre de los eventos siempre acompañados de una acción en pasado. _Updated, Created, Removed, etc_
+
   - AssetFullUpdateApi**Transformer**
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
     - AssetFullUpdateConsoleTransformer
     - AssetFullUpdateTemplateTransformer
     - AssetFullErrorTransformer
+
   - AssetFullUpdate**Test**
     - Prueba unitaria del caso de uso
     - [Ejemplo de test de caso de uso en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1634)
+
   - AssetFull**Trait**
+
   - **AssetFullInterface**
+
   - AbstractAssetFull**Exception**
     - AssetFullUpdateException
     - AssetFullFilterException
     - [Named Constructors I - Carlos Buenosvinos](https://youtu.be/LjEG7AR-MOg)
+
   - AssetsXxx**Enum**
 
 - ### Otros
