@@ -162,7 +162,7 @@ final class AssetFullUpdateController
     - Optamos por arrays antes que las colecciones. Son más ligeros y hay funciones nativas como map, filter, reduce que nos permiten hacer operaciones de transformación.
     - El **DTO** de entrada suele tener un naming constructor **fromPrimitives(array $primitives)** puede que si el caso de uso no es complejo nos baste con este método.
     - Si la construcción implica hacer una lógica compleja debemos recurrir a un **builder** 
-      - Ejemplo **Modules/TacticalRequests/Services/BulkTacticalRequest/BulkTacticalRequestCreateAssetFullDtoBuilderService.php** 
+      - Ejemplo **/BulkTacticalRequestCreateAssetFullDtoBuilderService.php** 
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
     - Een caso de no cumplir se lanza una excepción tipada
