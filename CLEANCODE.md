@@ -196,7 +196,7 @@ final class AssetFullUpdateController
 
 - ### Otros
   - Aplicamos el principio  **"Tell, Don't Ask"**
-  - Trabajamos con [**early error** y con **early return**](https://youtu.be/Gl9td0zGLhw?t=2821).
+  - Trabajamos con [**early error** y con **early return** - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2821).
     - Al mínimo error nos salimos del contexto en el que estamos.
     - Evitamos el if () elseif (){} else {}
   - Evitamos comentarios. Para esto usamos variables métodos y clases con alto valor semántico
@@ -224,7 +224,7 @@ final class AssetFullUpdateController
   ```
   - Los nombres de las variables deben estar en formato **$camelCase** no **$snake_case** 
   - No usamos literales planos o numericos (magic numbers) en clausulas de guarda, recurrimos a enumerados o constantes con valor semántico.
-  - [Métricas de calidad del código UCM](https://youtu.be/jNSQuqMW8sM?t=2799)
+  - [Métricas de calidad del código - UCM](https://youtu.be/jNSQuqMW8sM?t=2799)
   - Usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
   ```php
   $userName = "Eduardo";
@@ -237,7 +237,7 @@ final class AssetFullUpdateController
     "$userName 2" => "yyy",
   ];
   ``` 
-  - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno [(no usamos **mixed**)](https://youtu.be/Gl9td0zGLhw?t=2124).
+  - Aplicamos tipado estricto tanto en argumentos de entrada como de retorno [(no usamos **mixed**) - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2124).
   - Los métodos que tengan un tipo de retorno deben empezar por **get** y si es un booleano la firma debe ser en forma de pregunta: **is, has, does, do, etc**
   ```php
   private function getUserRolesByUuid(string $uuid): array;
@@ -248,7 +248,7 @@ final class AssetFullUpdateController
   
   private function doesUserHavePermissionByUserId(int $userId): bool;
   ```
-  - Evitamos métodos porlimorficos y más si son públicos. [Avoid swtich parameters](https://youtu.be/Gl9td0zGLhw?t=1472)
+  - Evitamos métodos porlimorficos y más si son públicos. [Avoid swtich parameters - Ocramius](https://youtu.be/Gl9td0zGLhw?t=1472)
   ```php
   //nok
   $actionType = "create"; //update
@@ -263,7 +263,6 @@ final class AssetFullUpdateController
   foreach ($assets as $asset)
   foreach ($roles as $role)
   ```
-- [Calidad del código](https://youtu.be/jNSQuqMW8sM?t=2799)
 - las variables se definen lo más cerca de donde se utilizan
 ```php
 private function addUsersWithVisibility(array $users): void
@@ -290,7 +289,7 @@ private function addUsersWithVisibility(array $users): void
 }
 ```
 - Usamos el operador ternario `$x==$y?"hola":"chao"`
-- Como mucho nuestros métodos deberían admitir **2 argumentos** en caso de ser más habrá que empaquetarlos en una clase (DTO o [ValueObject](https://youtu.be/Gl9td0zGLhw?t=2153))
+- Como mucho nuestros métodos deberían admitir **2 argumentos** en caso de ser más habrá que empaquetarlos en una clase (DTO o [ValueObject - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2153))
 ```php
 //nok
 private function areAgesInRangeOrFail(int $age1, int $age2, int $age3): bool;
@@ -307,7 +306,7 @@ private function areAgesInRangeOrFail(array $ages): bool;
   $asset = Assets::select(["id","asset_name"])->whereId($assetId);
   ```
 - Evitamos usar las relaciones del ORM (métodos **with**)
-  - [Desintoxicándonos de Eloquent](https://www.youtube.com/watch?v=EInyOtPra44) 
+  - [Desintoxicándonos de Eloquent - Codely](https://www.youtube.com/watch?v=EInyOtPra44) 
   - Esto procura evitar los *leaks de infraestructura*
   ```php
   //Aqui nuestra entidad TacticalRequestEntity estaria conociendo de infraestructura para obtener una tarea que al mismo tiempo repite 
@@ -315,4 +314,4 @@ private function areAgesInRangeOrFail(array $ages): bool;
   //de la capa de Infra.
   $tacticalRequest->task->type->name
   ```
-- No integramos [código muerto](https://youtu.be/Gl9td0zGLhw?t=2443). Principio YAGNI
+- No integramos [código muerto - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2443). Principio YAGNI
