@@ -112,8 +112,8 @@ final class AssetFullUpdateController
         }
     }
 ```
-- Evitamos el fuerte acomplamiento con el **framework** de turno. Este es un componente reemplazable de infraestructura y no pertenece al dominio de nuestra aplicación.
-  - Esto no solo vale para librerias propias del fw también de terceros. 
+- Evitamos el fuerte acomplamiento al **framework** de turno. Este es un componente reemplazable de infraestructura y no pertenece al dominio de nuestra aplicación.
+  - Esto no solo vale para librerias propias del fw también de terceros. Hay que pensar que se puede quedar sin soporte.
   - [PHP-Frameworks-Bench](https://github.com/myaaghubi/PHP-Frameworks-Bench)
 
 - ### Endpoints:
