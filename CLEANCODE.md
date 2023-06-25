@@ -163,15 +163,16 @@ final class AssetFullUpdateController
     - Optamos por arrays antes que las colecciones. Son más ligeros y hay funciones nativas como map, filter, reduce que nos permiten hacer operaciones de transformación.
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
+    - Een caso de no cumplir se lanza una excepción tipada
   - AssetFull**Repository**
     - Implementa [AssetFullRepositoryInterface](https://youtu.be/EInyOtPra44?t=250)
     - [Cuando usar Interfaces - Codely](https://youtu.be/uP1CoHtjALg?t=498)
-    - No usamos métodos estáticos ya que estos esconden logica que a posteriori dificulta la testabilidad
-    - Lo mismo ocurre con los **helpers**
+    - No usamos métodos estáticos, ya que estos esconden lógica que a posteriori dificultará la **testabilidad**
+    - Lo mismo ocurre con los **helpers** esas funciones que es una estratégia más propia de la progamación imperativa.
   - AssetFull**Provider**
     - Implementa AssetFullRepositoryInterface
-    - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
-  - Asset**Entity** (extiende de [AggregateRoot](https://youtu.be/EInyOtPra44?t=173))
+    - Es equivalente a un repositorio, pero con la salvedad que el origen de los datos que abstrae es un **sistema externo**, un micro-servicio, una api de terceros, etc.
+  - Asset**Entity** (extiende de [AggregateRoot - Codely](https://youtu.be/EInyOtPra44?t=173))
     - Sobre el [AggregateRoot](https://youtu.be/Gl9td0zGLhw?t=2695) 
     - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity - Codely](https://youtu.be/J0SFLG5B3wo?t=142)
