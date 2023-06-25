@@ -127,17 +127,16 @@ final class AssetFullUpdateController
   - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Composición (usando el inyector de dependencias).
     - Otra opción son los [traits](https://youtu.be/Gl9td0zGLhw?t=2305) aunque tiene sus desventajas.
     - De forma resumida el fín es facilitar la implementación de tests unitarios. La composición nos da visibilidad de los componentes que intervienen y permiten ser "moqueados".
-    - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc)
-    - [Relaciones entre objetos - UML](https://youtu.be/jNSQuqMW8sM?t=263)
+    - [Composición sobre herencia - Codely](https://www.youtube.com/watch?v=OyTPDFyGWRc)
+    - [Relaciones entre objetos (UML) - UPM](https://youtu.be/jNSQuqMW8sM?t=263)
 
-  - Por defecto todos sus **atributos** y **métodos** son [private](https://youtu.be/Gl9td0zGLhw?t=1567). 
-    - Mantener un [método público](https://youtu.be/Gl9td0zGLhw?t=1406) tiene un costo mayor.
+  - Por defecto todos sus **atributos** y **métodos** son [private - Ocramius](https://youtu.be/Gl9td0zGLhw?t=1567). 
+    - Mantener un [método público - Ocramius](https://youtu.be/Gl9td0zGLhw?t=1406) tiene un costo mayor.
 
   - Como métodos públicos dispondremos el constructor y el método `__invoke()` (la carga semántica de la accíón recae en el nombre de la clase).
     - Este nombre ya indica de partida que nuestra clase tendrá una única responsabilidad. La **S** de SOLID.
   - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se ejecuta la única lógica 
   para la que ha sido creada la clase. **AssetFullUpdate**
-  - [Extremely defensive PHP](https://www.youtube.com/watch?v=Gl9td0zGLhw)
 
 - ### Clases y su responsabilidad en una aplicación
   - Sufijo que identifica la responsabilidad
@@ -145,7 +144,7 @@ final class AssetFullUpdateController
     - Gestiona el punto de entrada, request y su resultado de post procesado response
     - [Ejemplo de Controlador en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1465)
   - AssetFullUpdate**Command** AssetFullUpdate**Dto**
-    - DTO (Data Transfer Object). [Objeto inmutable.](https://youtu.be/Gl9td0zGLhw?t=1110)
+    - DTO (Data Transfer Object). [Objeto inmutable - Ocramius](https://youtu.be/Gl9td0zGLhw?t=1110)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
   - AssetFullUpdate**CommandHandler** 
@@ -153,12 +152,12 @@ final class AssetFullUpdateController
     - Esta capa tiene sentido si trabajamos con un EventHandler por ejemplo.
     - [Ejemplo de CommandHandler en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1492)
   - AssetFullUpdate**Service**
-    - [Porqué se separa el servicio del command handler?](https://youtu.be/-Cim-IgBoLA?t=2098) 
+    - [Porqué se separa el servicio del command handler? - Codely](https://youtu.be/-Cim-IgBoLA?t=2098) 
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
     - [Ejemplo de un Application Service en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1561)
   - AssetFullUpdate**Dto**
-    - Lo ideal es que cada vez que se ejecute el caso de uso, este, si tiene que devolver algo deberia ser un [objeto DTO](https://youtu.be/Gl9td0zGLhw?t=2459).
+    - Lo ideal es que cada vez que se ejecute el caso de uso, este, si tiene que devolver algo deberia ser un [objeto DTO - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2459).
     - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
     - Optamos por arrays antes que las colecciones. Son más ligeros y hay funciones nativas como map, filter, reduce que nos permiten hacer operaciones de transformación.
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
@@ -174,7 +173,7 @@ final class AssetFullUpdateController
   - Asset**Entity** (extiende de [AggregateRoot](https://youtu.be/EInyOtPra44?t=173))
     - Sobre el [AggregateRoot](https://youtu.be/Gl9td0zGLhw?t=2695) 
     - En singular 
-    - [Sobre named constructors en lugar de usar new AssetEntity](https://youtu.be/J0SFLG5B3wo?t=142)
+    - [Sobre named constructors en lugar de usar new AssetEntity - Codely](https://youtu.be/J0SFLG5B3wo?t=142)
     - [Ejemplo de la entidad Aggregate en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1595)
   - AssetFullUpdated**Event**
     - DTO
