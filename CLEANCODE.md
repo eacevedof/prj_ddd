@@ -308,4 +308,4 @@ private function areAgesInRangeOrFail(array $ages): bool;
   //de la capa de Infra.
   $tacticalRequest->task->type->name
   ```
-- No integramos código muerto
+- No integramos [código muerto](https://youtu.be/Gl9td0zGLhw?t=2443)
