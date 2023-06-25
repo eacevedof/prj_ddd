@@ -244,7 +244,7 @@ final class AssetFullUpdateController
   
   private function doesUserHavePermissionByUserId(int $userId): bool;
   ```
-  - Evitamos métodos porlimorficos y más si son públicos.
+  - Evitamos métodos porlimorficos y más si son públicos. [Avoid swtich parameters](https://youtu.be/Gl9td0zGLhw?t=1472)
   ```php
   //nok
   $actionType = "create"; //update
