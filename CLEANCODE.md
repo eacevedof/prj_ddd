@@ -9,8 +9,6 @@
 #### Esquema de datos
 - Los nombres de las tablas y campos siempre se deben definir en Inglés.
 - Los nombres de las tablas debemos considerarlos como un conjunto de datos desacoplable del core e identificarlas con un prefijo. Teniendo en perspectiva llevar esa funcionalidad a un micro-servicio.
-- Evitamos el fuerte acomplamiento con el **framework** a este es solo una pieza reemplazable de infraestructura.
-  - [PHP-Frameworks-Bench](https://github.com/myaaghubi/PHP-Frameworks-Bench)
 - Un ejemplo son las tablas **assets_** y/o **bulk_**
 - Los nombres se definen en plural (por seguir la convención del esquema heredado CEH)
 - Las claves foraneas siguen el siguiente formato: **<nombre-de-tabla-destino>_id** (según CEH) un ejemplo es **assets_id**
@@ -113,6 +111,8 @@ final class AssetFullUpdateController
         }
     }
 ```
+- Evitamos el fuerte acomplamiento con el **framework** a este es solo una pieza reemplazable de infraestructura.
+  - [PHP-Frameworks-Bench](https://github.com/myaaghubi/PHP-Frameworks-Bench)
 
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
@@ -151,7 +151,11 @@ final class AssetFullUpdateController
     - [Porqué se separa el servicio del command handler?](https://youtu.be/-Cim-IgBoLA?t=2098) 
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
-    - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561) 
+    - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561)
+  - AssetFullUpdate**Dto**
+    - Lo ideal es que cada vez que se ejecute el caso de uso este, si tiene que devolver algo deberia ser un objeto DTO.
+    - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
+    - Optamos por arrays antes que las colecciones. Son más ligeros y hay funciones nativas como map, filter, reduce que nos permiten hacer operaciones de transformación.
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetFull**Repository**
@@ -165,12 +169,9 @@ final class AssetFullUpdateController
     - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity](https://youtu.be/J0SFLG5B3wo?t=142)
     - https://youtu.be/o0w-jYun6AU?t=1595
-  - AssetFullUpdateFinished**Event**
+  - AssetFullUpdated**Event**
     - DTO
     - Los eventos siempre acompañados de una acción en pasado
-  - AssetFullUpdate**Dto**
-    - Lo ideal es que cada vez que se ejecute el caso de uso este, si tiene que devolver algo deberia ser un objeto DTO.
-    - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
   - AssetFullUpdateApi**Transformer**
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
     - AssetFullUpdateConsoleTransformer
