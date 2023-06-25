@@ -175,7 +175,7 @@ final class AssetFullUpdateController
     - Sobre el [AggregateRoot](https://youtu.be/Gl9td0zGLhw?t=2695) 
     - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity](https://youtu.be/J0SFLG5B3wo?t=142)
-    - [Ejemplo de test de caso de uso en DDD - Codely]( https://youtu.be/o0w-jYun6AU?t=1595)
+    - [Ejemplo de la entidad Aggregate en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1595)
   - AssetFullUpdated**Event**
     - DTO
     - Los eventos siempre acompañados de una acción en pasado
@@ -186,7 +186,7 @@ final class AssetFullUpdateController
     - AssetFullErrorTransformer
   - AssetFullUpdate**Test**
     - Prueba unitaria del caso de uso
-    - https://youtu.be/o0w-jYun6AU?t=1634 
+    - [de test de caso de uso en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1634)
   - AssetFull**Trait**
   - **AssetFullInterface**
   - AbstractAssetFull**Exception**
