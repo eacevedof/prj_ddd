@@ -215,7 +215,7 @@ final class AssetFullUpdateController
 
   - AssetsXxx**Enum**
 
-- ### Otros
+- ### Otros puntos a tener en cuenta
   - Aplicamos el principio  **"Tell, Don't Ask"**
   - Trabajamos con [**early error** y con **early return** - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2821).
     - Al mínimo error nos salimos del contexto en el que estamos.
