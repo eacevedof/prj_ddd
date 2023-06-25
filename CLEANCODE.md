@@ -141,10 +141,10 @@ final class AssetFullUpdateController
 
 - ### Clases y su responsabilidad en una aplicación
   - Sufijo que identifica la responsabilidad
-  - AssetFullUpdate**Controller**
+  - ## AssetFullUpdate**Controller**
     - Gestiona el punto de entrada, request y su resultado de post procesado response
     - [Ejemplo de Controlador en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1465)
-  - AssetFullUpdate**Command** AssetFullUpdate**Dto**
+  - ## AssetFullUpdate**Command** AssetFullUpdate**Dto**
     - DTO (Data Transfer Object). [Objeto inmutable - Ocramius](https://youtu.be/Gl9td0zGLhw?t=1110)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
   - AssetFullUpdate**CommandHandler** 
