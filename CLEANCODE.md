@@ -191,7 +191,7 @@ final class AssetFullUpdateController
   - AbstractAssetFull**Exception**
     - AssetFullUpdateException
     - AssetFullFilterException
-    - [Name constructor en excepciones](https://youtu.be/J0SFLG5B3wo?t=439)
+    - [Named Constructors I - Carlos Buenosvinos](https://youtu.be/LjEG7AR-MOg)
   - AssetsXxx**Enum**
 
 - ### Otros
