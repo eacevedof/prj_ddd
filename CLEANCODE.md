@@ -156,7 +156,7 @@ final class AssetFullUpdateController
     - [Porqué se separa el servicio del command handler?](https://youtu.be/-Cim-IgBoLA?t=2098) 
     - Application service. Encapsula el caso de uso que se pretende resolver. En el ejemplo, actualizar un asset.
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
-    - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561)
+    - [Ejemplo de un Application Service en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1561)
   - AssetFullUpdate**Dto**
     - Lo ideal es que cada vez que se ejecute el caso de uso, este, si tiene que devolver algo deberia ser un [objeto DTO](https://youtu.be/Gl9td0zGLhw?t=2459).
     - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
