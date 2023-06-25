@@ -111,7 +111,7 @@ final class AssetFullUpdateController
         }
     }
 ```
-- Evitamos el fuerte acomplamiento con el **framework** a este es solo una pieza reemplazable de infraestructura.
+- Evitamos el fuerte acomplamiento con el **framework** este es solo una pieza reemplazable de infraestructura.
   - [PHP-Frameworks-Bench](https://github.com/myaaghubi/PHP-Frameworks-Bench)
 
 - ### Endpoints:
@@ -140,7 +140,7 @@ final class AssetFullUpdateController
     - Gestiona el punto de entrada, request y su resultado de post procesado response
     - [https://youtu.be/o0w-jYun6AU?t=1465](https://youtu.be/o0w-jYun6AU?t=1465)
   - AssetFullUpdate**Command** AssetFullUpdate**Dto**
-    - DTO (Data Transfer Object)
+    - DTO (Data Transfer Object). [Objeto inmutable.](https://youtu.be/Gl9td0zGLhw?t=1110)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
     - Se validan los tipos primitivos
   - AssetFullUpdate**CommandHandler** 
@@ -162,6 +162,7 @@ final class AssetFullUpdateController
     - Implementa [AssetFullRepositoryInterface](https://youtu.be/EInyOtPra44?t=250)
     - [https://youtu.be/uP1CoHtjALg?t=498](https://youtu.be/uP1CoHtjALg?t=498)
     - No usamos métodos estáticos ya que estos esconden logica que a posteriori dificulta la testabilidad
+    - Lo mismo ocurre con los **helpers**
   - AssetFull**Provider**
     - Implementa AssetFullRepositoryInterface
     - Es equivalente a un repositorio pero con la salvedad que el origen es un sistema externo, un micro-servicio, una api de terceros, etc.
@@ -191,8 +192,9 @@ final class AssetFullUpdateController
 - ### Otros
   - Aplicamos el principio  **"Tell, Don't Ask"**
   - Trabajamos con **early error** y con **early return**.
-  - Al mínimo error nos salimos del contexto en el que estemos.
-  - Evitamos comentarios. Para esto usamos variables metodos y clases con alto valor semantico
+    - Al mínimo error nos salimos del contexto en el que estamos.
+    - Evitamos el if () elseif (){} else {}
+  - Evitamos comentarios. Para esto usamos variables métodos y clases con alto valor semántico
   - Código muerto. El código que queda obsoleto se elimina. La mejor línea de código es la que no se escribe y por ende no hay que mantener.
   ```php
   private function isValidAssetHead(array $assetHead): bool
@@ -241,6 +243,10 @@ final class AssetFullUpdateController
   private function getFilesFromAzureByTypeOrFail(string $fileType): array;
   
   private function doesUserHavePermissionByUserId(int $userId): bool;
+  ```
+  - Evitamos métodos porlimorficos y más si son públicos.
+  ```php
+  public function 
   ```
   - Los arrays los definimos en plural y con valor semántico. 
   ```php
