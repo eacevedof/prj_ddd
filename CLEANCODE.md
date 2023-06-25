@@ -165,7 +165,7 @@ final class AssetFullUpdateController
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
   - AssetFull**Repository**
     - Implementa [AssetFullRepositoryInterface](https://youtu.be/EInyOtPra44?t=250)
-    - [https://youtu.be/uP1CoHtjALg?t=498](https://youtu.be/uP1CoHtjALg?t=498)
+    - [Cuando usar Interfaces - Codely](https://youtu.be/uP1CoHtjALg?t=498)
     - No usamos métodos estáticos ya que estos esconden logica que a posteriori dificulta la testabilidad
     - Lo mismo ocurre con los **helpers**
   - AssetFull**Provider**
