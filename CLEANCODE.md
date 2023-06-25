@@ -310,7 +310,7 @@ private function areAgesInRangeOrFail(array $ages): bool;
 - Evitamos usar las relaciones del ORM (métodos **with**)
   - [Desintoxicándonos de Eloquent - Codely](https://www.youtube.com/watch?v=EInyOtPra44) 
   - Esto procura evitar los *leaks de infraestructura*
-  - Y por otro lado las interfaces dinámicas: [Fluent interfaces - Ocramius](https://youtu.be/Gl9td0zGLhw)
+  - Hay que evitar las interfaces fluidas: [Fluent interfaces - Ocramius](https://youtu.be/Gl9td0zGLhw)
   ```php
   //Aqui nuestra entidad TacticalRequestEntity estaria conociendo de infraestructura para obtener una tarea que al mismo tiempo repite 
   //el proceso para obtener el tipo.  Una entidad no tiene esta responsabilidad quien tiene acceso a los datos es el repositorio que es una abstracción
