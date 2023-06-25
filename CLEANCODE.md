@@ -112,7 +112,8 @@ final class AssetFullUpdateController
         }
     }
 ```
-- Evitamos el fuerte acomplamiento con el **framework** este es solo una pieza reemplazable de infraestructura.
+- Evitamos el fuerte acomplamiento con el **framework** de turno. Este es un componente reemplazable de infraestructura y no pertenece al dominio de nuestra aplicación.
+  - Esto no solo vale para librerias propias del fw también de terceros. 
   - [PHP-Frameworks-Bench](https://github.com/myaaghubi/PHP-Frameworks-Bench)
 
 - ### Endpoints:
@@ -142,7 +143,7 @@ final class AssetFullUpdateController
   - Sufijo que identifica la responsabilidad
   - AssetFullUpdate**Controller**
     - Gestiona el punto de entrada, request y su resultado de post procesado response
-    - [https://youtu.be/o0w-jYun6AU?t=1465](https://youtu.be/o0w-jYun6AU?t=1465)
+    - [Ejemplo de Controlador en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1465)
   - AssetFullUpdate**Command** AssetFullUpdate**Dto**
     - DTO (Data Transfer Object). [Objeto inmutable.](https://youtu.be/Gl9td0zGLhw?t=1110)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
