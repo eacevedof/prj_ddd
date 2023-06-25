@@ -147,7 +147,6 @@ final class AssetFullUpdateController
   - AssetFullUpdate**Command** AssetFullUpdate**Dto**
     - DTO (Data Transfer Object). [Objeto inmutable - Ocramius](https://youtu.be/Gl9td0zGLhw?t=1110)
     - Es el payload mínimo de entrada (que conoce el handler). Se extrae de la request y que se pasará al handler.
-    - Se validan los tipos primitivos
   - AssetFullUpdate**CommandHandler** 
     - Es una capa de indirección más. Recupera el Command (DTO) anterior y lo descompone en sus primitivos para pasarlo al servicio 
     - Esta capa tiene sentido si trabajamos con un EventHandler por ejemplo.
@@ -164,6 +163,8 @@ final class AssetFullUpdateController
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
     - Een caso de no cumplir se lanza una excepción tipada
+    - Se validan los tipos primitivos
+    - Se hacen comprobaciones contra la bd
   - AssetFull**Repository**
     - Implementa [AssetFullRepositoryInterface](https://youtu.be/EInyOtPra44?t=250)
     - [Cuando usar Interfaces - Codely](https://youtu.be/uP1CoHtjALg?t=498)
