@@ -224,7 +224,7 @@ final class AssetFullUpdateController
   ```
   - Los nombres de las variables deben estar en formato **$camelCase** no **$snake_case** 
   - No usamos literales planos o numericos (magic numbers) en clausulas de guarda, recurrimos a enumerados o constantes con valor semántico.
-  - https://youtu.be/jNSQuqMW8sM?t=2799
+  - [Métricas de calidad del código UCM](https://youtu.be/jNSQuqMW8sM?t=2799)
   - Usamos comillas dobles ya que permiten la interpolación en lugar de la concatenación
   ```php
   $userName = "Eduardo";
