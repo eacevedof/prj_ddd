@@ -127,8 +127,9 @@ final class AssetFullUpdateController
     - [Composición sobre herencia](https://www.youtube.com/watch?v=OyTPDFyGWRc)
     - [Relaciones entre objetos - UML](https://youtu.be/jNSQuqMW8sM?t=263)
 
-  - Por defecto todos sus atributos y métodos son [**private**](https://youtu.be/Gl9td0zGLhw?t=1567). 
+  - Por defecto todos sus **atributos** y **métodos** son [private](https://youtu.be/Gl9td0zGLhw?t=1567). 
     - Mantener un [método público](https://youtu.be/Gl9td0zGLhw?t=1406) tiene un costo mayor.
+
   - Como métodos públicos dispondremos el constructor y el método `__invoke()` (la carga semántica de la accíón recae en el nombre de la clase).
     - Este nombre ya indica de partida que nuestra clase tendrá una única responsabilidad. La **S** de SOLID.
   - En el constructor se hace la inyección de dependencias (no hacemos ninguna lógica solo asignamos) y con invoke se ejecuta la única lógica 
