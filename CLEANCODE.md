@@ -157,7 +157,7 @@ final class AssetFullUpdateController
     - La diferencia entre un command handler y un servicio de aplicación es que el segundo hace una lógica compleja que está estrechamente relacionada con el Dominio de la app.
     - [https://youtu.be/o0w-jYun6AU?t=1561](https://youtu.be/o0w-jYun6AU?t=1561)
   - AssetFullUpdate**Dto**
-    - Lo ideal es que cada vez que se ejecute el caso de uso este, si tiene que devolver algo deberia ser un objeto DTO.
+    - Lo ideal es que cada vez que se ejecute el caso de uso, este, si tiene que devolver algo deberia ser un [objeto DTO](https://youtu.be/Gl9td0zGLhw?t=2459).
     - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
     - Optamos por arrays antes que las colecciones. Son más ligeros y hay funciones nativas como map, filter, reduce que nos permiten hacer operaciones de transformación.
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
@@ -308,4 +308,4 @@ private function areAgesInRangeOrFail(array $ages): bool;
   //de la capa de Infra.
   $tacticalRequest->task->type->name
   ```
-- No integramos [código muerto](https://youtu.be/Gl9td0zGLhw?t=2443)
+- No integramos [código muerto](https://youtu.be/Gl9td0zGLhw?t=2443). Principio YAGNI
