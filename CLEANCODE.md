@@ -178,7 +178,7 @@ final class AssetFullUpdateController
     - [Sobre named constructors en lugar de usar new AssetEntity - Codely](https://youtu.be/J0SFLG5B3wo?t=142)
     - [Ejemplo de la entidad Aggregate en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1595)
   - AssetFullUpdated**Event**
-    - DTO
+    - Es un DTO inmutable.
     - Los eventos siempre acompañados de una acción en pasado
   - AssetFullUpdateApi**Transformer**
     - Si procede, al resultado anterior se le puede aplicar alguna transformación antes de enviar la respuesta al cliente 
