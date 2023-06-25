@@ -18,6 +18,7 @@
 - Creamos tablas 1:1 para aquellos casos donde tengamos que almacenar estructuras JSON. En la principal definimos todos los campos menos los tipo JSON
 
 #### Esqueleto base de un controlador. Ejemplo: Caso de uso: Actualizar un Asset
+- Todas las clases son [final](https://youtu.be/Gl9td0zGLhw?t=2278) y readonly por defecto
 ```php
 final class AssetFullUpdateController
 {
