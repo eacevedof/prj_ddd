@@ -64,7 +64,7 @@ final class AssetFullUpdateController
             $assetFullDto = $this->assetFullUpdateDtoFromRequestBuilderService->__invoke($request);
             $this->assetFullUpdateDtoFromRequestBuilderService = null;
     /**
-     * Aqui ejecutamos "early error". Se valida el payload de entrada y se lanzan excepciones Ad-Hoc 
+     * Aquí ejecutamos "early error". Se valida el payload de entrada y se lanzan excepciones Ad-Hoc 
      * para aquellos casos en los que el DTO no cumple con las Reglas de negocio.
      * 
      * Es importante definir correctamente los códigos de error en las excepciones 
@@ -112,12 +112,13 @@ final class AssetFullUpdateController
         }
     }
 ```
-- Evitamos el fuerte acomplamiento al **framework** de turno. Este es un componente reemplazable de infraestructura y no pertenece al dominio de nuestra aplicación.
-  - Esto no solo vale para librerias propias del fw también de terceros. Hay que pensar que se puede quedar sin soporte.
+- Evitamos el fuerte acomplamiento al **framework de turno**. Este es un componente reemplazable de infraestructura y no pertenece al dominio de nuestra aplicación.
+  - Esto no solo cuenta para librerías propias del fw sino también de terceros. Hay que pensar que se puede quedar sin soporte.
   - [PHP-Frameworks-Bench](https://github.com/myaaghubi/PHP-Frameworks-Bench)
 
 - ### Endpoints:
 - Deberían ser user friendly y aplicando el formato slug en las urls
+- Matizar la diferencia de los métodos: **update y patch**. **update** para datos completos de un recurso y **patch** para actualizaciones parciales.
 - usamos guiones medios y siempre minúsculas
   - https://undominio.com/asset/update/parametro-1 (ok)
   - https://undominio.com/Asset/Update/Parametro_1 (nok)
