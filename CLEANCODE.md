@@ -196,16 +196,15 @@ final class AssetFullUpdateController
 
 - ### Otros
   - Aplicamos el principio  **"Tell, Don't Ask"**
-  - Trabajamos con **early error** y con **early return**.
+  - Trabajamos con [**early error** y con **early return**](https://youtu.be/Gl9td0zGLhw?t=2821).
     - Al mínimo error nos salimos del contexto en el que estamos.
     - Evitamos el if () elseif (){} else {}
   - Evitamos comentarios. Para esto usamos variables métodos y clases con alto valor semántico
-  - Código muerto. El código que queda obsoleto se elimina. La mejor línea de código es la que no se escribe y por ende no hay que mantener.
   ```php
   private function isValidAssetHead(array $assetHead): bool
   {
     /**
-    * early return
+    * early return or return first
     */
     if (!$assetHead) {
         return false;
