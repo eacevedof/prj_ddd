@@ -160,6 +160,9 @@ final class AssetFullUpdateController
     - Lo ideal es que cada vez que se ejecute el caso de uso, este, si tiene que devolver algo deberia ser un [objeto DTO - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2459).
     - En nuestro caso para no meter otra capa de indirección nos vale con devolver tipos primitivos y/o arrays.
     - Optamos por arrays antes que las colecciones. Son más ligeros y hay funciones nativas como map, filter, reduce que nos permiten hacer operaciones de transformación.
+    - El **DTO** de entrada suele tener un naming constructor **fromPrimitives(array $primitives)** puede que si el caso de uso no es complejo nos baste con este método.
+    - Si la construcción implica hacer una lógica compleja debemos recurrir a un **builder** 
+      - Ejemplo **Modules/TacticalRequests/Services/BulkTacticalRequest/BulkTacticalRequestCreateAssetFullDtoBuilderService.php** 
   - AssetFullUpdate**CommandValidator** AssetFullUpdate**Validator**
     - En el servicio se validan las reglas de negocio que debe pasar el **comando** antes de ser invocado en el caso de uso
     - Een caso de no cumplir se lanza una excepción tipada
