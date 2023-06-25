@@ -173,7 +173,7 @@ final class AssetFullUpdateController
     - Implementa AssetFullRepositoryInterface
     - Es equivalente a un repositorio, pero con la salvedad que el origen de los datos que abstrae es un **sistema externo**, un micro-servicio, una api de terceros, etc.
   - Asset**Entity** (extiende de [AggregateRoot - Codely](https://youtu.be/EInyOtPra44?t=173))
-    - Sobre el [AggregateRoot](https://youtu.be/Gl9td0zGLhw?t=2695) 
+    - Sobre el [AggregateRoot - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2695) 
     - En singular 
     - [Sobre named constructors en lugar de usar new AssetEntity - Codely](https://youtu.be/J0SFLG5B3wo?t=142)
     - [Ejemplo de la entidad Aggregate en DDD - Codely](https://youtu.be/o0w-jYun6AU?t=1595)
