@@ -126,7 +126,7 @@ final class AssetFullUpdateController
 - ### Encapsulación
   - Las clases deben ser **final** por defecto `final class AssetFullUpdateController, etc`
   - Procuramos no recurrir a la herencia siempre que sea posible. En su lugar optamos por el uso de Composición (usando el inyector de dependencias).
-    - Otra opción son los [traits](https://youtu.be/Gl9td0zGLhw?t=2305) aunque tiene sus desventajas.
+    - Otra opción son los [traits - Ocramius](https://youtu.be/Gl9td0zGLhw?t=2305) aunque tiene sus desventajas.
     - De forma resumida el fín es facilitar la implementación de tests unitarios. La composición nos da visibilidad de los componentes que intervienen y permiten ser "moqueados".
     - [Composición sobre herencia - Codely](https://www.youtube.com/watch?v=OyTPDFyGWRc)
     - [Relaciones entre objetos (UML) - UPM](https://youtu.be/jNSQuqMW8sM?t=263)
